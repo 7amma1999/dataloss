@@ -1,0 +1,69 @@
+{
+  "banner": {
+    "category": "Taxes Refunds",
+    "date": "Jan 25,2020",
+    "title": "Tax Refunds are out now!",
+    "description": "Vivamus ut sagittis eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc et sagittis turpis. Mauris at aliquam nunc. Donec metus justo, elementum at est vestibulum, faucibus tincidunt libero.",
+    "theme": "orange"
+  },
+  "totalIncidentsValue": "50",
+  "totalIncidents": [
+    {
+      "month": "Aug",
+      "percentage": "10"
+    },
+    {
+      "month": "Sep",
+      "percentage": "10"
+    },
+    {
+      "month": "Oct",
+      "percentage": "7"
+    },
+    {
+      "month": "Nov",
+      "percentage": "12"
+    },
+    {
+      "month": "Dec",
+      "percentage": "14"
+    },
+    {
+      "month": "Jan",
+      "percentage": "6"
+    }
+  ],
+  "incidentsViaRegion": [
+    {
+      "country": "India",
+      "number": 20,
+      "color": "purple"
+    },
+    {
+      "country": "Americas",
+      "number": 11,
+      "color": "blue"
+    },
+    {
+      "country": "Middle East",
+      "number": 10,
+      "color": "green"
+    },
+    {
+      "country": "Asia-Pacific",
+      "number": 9,
+      "color": "light-blue"
+    }
+  ],
+  "statusGraph": {
+    "employeeAction": {
+      "currentValue": 28,
+      "leftValue": 22
+    },
+    "managerAction": {
+      "currentValue": 22,
+      "leftValue": 28
+    },
+    "systemAlert": "10 Incidents Are Due"
+  }
+}

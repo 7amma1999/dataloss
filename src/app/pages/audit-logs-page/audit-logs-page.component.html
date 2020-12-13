@@ -1,0 +1,40 @@
+<app-sd-header>
+</app-sd-header>
+
+<div class="content">
+  <div class="audit-logs-page row"
+    *ngIf="dataList">
+    
+    <div class="col col-md-5 col-sm-12 white-left">      
+      <app-sd-table-common
+        *ngIf="dataAuditLogsAccessControl && dataAuditLogsIncident"
+        [dataList]="dataList"
+        [pageData]="pageData"
+        [tableType]="'audit-logs'"
+        [selectedIndex]="selectedIndex"
+        (selectLog)="selectLog($event)"
+        (changeTableParamters)="changeTableParamters($event)">
+      </app-sd-table-common>
+    </div>
+    <!--end .white-left-->
+    <div class="col col-md-7 col-sm-12 blue-right mobile-hide"
+      [class.mobile-show]="showDetailsMobile">
+      <div class="mobile-back-header flex-grid mobile-show desktop-hide">
+        <a href="javascript:;" class="btn-back"
+          (click)="showDetailsMobile = false">
+        </a>
+        <div class="title">
+          Marc Carmic - Account Activity
+        </div>
+      </div>
+      <!--end .mobile-back-header-->
+      <app-sd-audit-log-details
+        [dataList]="dataList[selectedIndex]"
+        (closeDetails)="showDetailsMobile = false">
+      </app-sd-audit-log-details>
+    </div>
+    <!--end .blue-right-->
+  </div>
+  <!--end .audit-logs-page-->
+</div>
+<!-- end .content -->

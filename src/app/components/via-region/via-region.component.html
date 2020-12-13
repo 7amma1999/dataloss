@@ -1,0 +1,27 @@
+<div class="white-panel admins-region-panel">
+  <a href="javascript:;" class="btn-more"></a>
+  <div class="top-title">
+    Admins Via Region
+  </div>
+  <div class="chart-bars">
+    <ul>
+      <li *ngFor="let item of dataList">
+        <div class="lable-txt">
+          {{item['country']}}
+        </div>
+        <div class="line-bar {{item['color']}}">
+          <div class="bg-progress">
+            <div class="color-bar"
+              [style.width]="((item['number'] * 100) / totalValues) + '%'">
+            </div>
+          </div>
+          <div class="right-number">
+            {{item['number']}}
+          </div>
+        </div>
+        <!--end .line-bar-->
+      </li>
+    </ul>
+  </div>
+</div>
+<!--end .admins-region-panel--> 

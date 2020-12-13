@@ -1,0 +1,123 @@
+@import '../../../styles/variables';
+
+.content {
+    padding: 24px 26px 35px 24px;
+}
+.audit-logs-page {
+    border-radius: 5px;
+    overflow: hidden;
+    &.row {
+        margin: 0;
+    }
+    .col {
+        padding: 0;
+    }
+    //.white-left
+    .white-left {
+        background-color: $whiteColor;
+    }
+    app-sd-table-common {
+        ::ng-deep {
+            .pages {
+                justify-content: center;
+            }
+        }
+    }
+    //.blue-right
+    .blue-right {
+        background-color: #f7f9fa;
+        &.col {
+            padding: 32px 32px 30px 50px;
+        }
+    }
+    .desktop-hide {
+        display: none;
+    }
+}
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1023px) {
+    .content {
+        padding: 0 0 0;
+        .white-left {
+            padding-bottom: 10px;
+        }
+        .blue-right {
+            z-index: 1500;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+    }
+    //.audit-logs-page
+    .audit-logs-page {
+        .col {
+            &.col-sm-12 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+        .mobile-show {
+            display: flex;
+        }
+        .mobile-back-header {
+            margin: 0 -8px;
+            width: calc(100% + 16px);
+            margin-bottom: 20px;
+        }
+        //.blue-right
+        .blue-right {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: calc(100%);
+            overflow-y: auto;
+            padding-top: 50px;
+            padding: 0 0 21px;
+            height: 100%;
+            &.col {
+                padding: 0 8px 20px;
+            }
+        }
+        ::ng-deep {
+            .data-module {
+                .search-area {
+                    padding: 17px 18px 58px;
+                    .left-txt {
+                        display: none;
+                    }
+                }
+                .table-top {
+                    border-top: 0;
+                    padding-top: 0;
+                }
+                .user-list {
+                    li {
+                        padding-bottom: 60px;
+                        position: relative;
+                        &.active {
+                            display: none;
+                        }
+                        .btn {
+                            position: absolute;
+                            left: 67px;
+                            bottom: 25px;
+                        }
+                        .btn-right-arrow {
+                            position: absolute;
+                            top: 50%;
+                            right: 15px;
+                            margin-top: -11px;
+                            width: 22px;
+                            height: 22px;
+                            display: block;
+                            background: url(/assets/i/mobile-right-arrow@2x.png) center center no-repeat;
+                            background-size: 11px 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

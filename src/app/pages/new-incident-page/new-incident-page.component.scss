@@ -1,0 +1,17 @@
+@import '../../../styles/variables';
+.breadcrumb{
+  background-color: transparent;
+  font-size: 0.8em;
+}
+.breadcrumb > li+li::before{
+  content: ">";
+}
+.container-fluid{
+  background-color: transparent;
+}
+.col-8{
+  background-color: #F7F9FA;
+}
+.col-4{
+  background-color: #ffffff;
+}

@@ -1,0 +1,76 @@
+@import '../../../styles/variables';
+
+//.pages
+.pages {
+    padding: 18px 20px;
+    display: flex;
+    .btn-page {
+        padding: 1px 16px;
+        color: $whiteColor;
+        font-size: 12px;
+        font-weight: 400;
+        height: 25px;
+        line-height: 23px;
+        border-radius: 15px;
+        &.btn-prev {
+            background: $blueColor url(/assets/i/icon-prev@2x.png) 8px center no-repeat;
+            background-size: 14px 9px;
+            padding-left: 32px;
+            margin-right: 10px;
+        }
+        &.btn-next {
+            background: $blueColor url(/assets/i/icon-next@2x.png) right 8px center no-repeat;
+            background-size: 14px 9px;
+            padding-right: 32px;
+            margin-left: 10px;
+        }
+        &.disabled {
+            cursor: default;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+    }
+    li {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 1px;
+        .link-number {
+            color: $grayPlaceholderColor;
+            font-size: 12px;
+            font-weight: 700;
+            height: 25px;
+            width: 25px;
+            border-radius: 100%;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            line-height: 25px;
+            &.active {
+                background-color: $blueColor;
+                color: $whiteColor;
+            }
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+    &.center {
+        justify-content: center;
+    }
+}
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1023px) {
+    .pages {
+        justify-content: center;
+        li {
+            margin: 0;
+            .link-number {
+                display: none;    
+                &.active {
+                    display: inline-block;
+                }
+            }
+            
+        }
+    }
+}

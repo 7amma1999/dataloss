@@ -1,0 +1,226 @@
+@import '../../../styles/variables';
+
+:host {
+    margin-right: 12px;
+}
+//.date-wrapper
+.date-wrapper {
+    position: relative;
+     &.open {
+        .date-panel {
+            display: block;
+        }
+    }
+    .date-panel {
+        display: none;
+        position: absolute;
+        top: 42px;
+        left: 0;
+        width: 277px;
+        box-shadow: 0 0 14px #e8e9f1;
+        border-radius: 15px;
+        border: 1px solid #ededee;
+        background-color: $whiteColor;
+        z-index: 999;
+        width: 627px;
+        height: 382px;
+        .date-mains {
+            padding: 10px 20px 40px 20px;
+            ::ng-deep {
+                ngb-datepicker-navigation-select {
+                    display: none;
+                }
+                .ngb-dp-months {
+                    margin-top: -30px;
+                }
+                .ngb-dp-header {
+                    background-color: transparent;
+                }
+                .ngb-dp-arrow {
+                    .btn-link {
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 100%;
+                        background-color: #e8e9f1;
+                        &:focus,
+                        &.hover {
+                            outline: none;
+                        }
+                        .ngb-dp-navigation-chevron {
+                            width: .55em;
+                            height: .55em;
+                            border-width: .15em .15em 0 0;
+                        }
+                    }
+                }
+                .ngb-dp-weekdays {
+                    background-color: #fff;
+                    border-bottom: 0;
+                    .ngb-dp-weekday {
+                        color: #acb1b6;
+                        font-style: normal;
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+                ngb-datepicker {
+                    width: 100%;
+                    border: 0;
+                    .ngb-dp-day {
+                        width: 35px;
+                        height: 35px;
+                        margin-bottom: 2px;
+                        &:focus,
+                        &:hover {
+                            outline: none;
+                            box-shadow: none;
+                        }
+                    }
+                    .ngb-dp-content {
+                        display: flex;
+                        justify-content: space-between;
+                        .ngb-dp-month-name {
+                            color: #58595b;
+                            font-size: 16px;
+                            font-weight: 500;
+                            background-color: #fff;
+                        }
+                    }
+                    .custom-day {
+                        width: 35px;
+                        height: 35px;
+                        padding: 0;
+                        line-height: 35px;
+                        font-size: 14px;
+                        color: #58595b;
+                        &.range,
+                        &:hover {
+                            background-color: #0f3570;
+                            border-radius: 100%;
+                            color: #fff;
+                        }
+                        &.faded {
+                            background-color: rgba(2, 137, 207, 0.05);
+                            color: #58595b;
+                            font-size: 14px;
+                            font-weight: 400;
+                            border-radius: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .bottom-area {
+            height: 66px;
+            padding: 0 25px 5px 29px;
+            border-top: 1px solid #e8e9f1;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            .gray-links {
+                color: $grayColor;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 16px;
+            }
+            .btn-all-blue {
+                padding: 1px 20px;
+                font-size: 14px;
+                line-height: 33px;
+                height: 35px;
+            }
+        }
+    }
+    
+}
+
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+.custom-day.focused {
+  background-color: #e6e6e6;
+}
+.custom-day.range, .custom-day:hover {
+  background-color: rgb(2, 117, 216);
+  color: white;
+}
+.custom-day.faded {
+  background-color: rgba(2, 117, 216, 0.5);
+}
+
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1023px) {
+    .content {
+        z-index: 9999;
+    }
+    .date-wrapper {
+        &.open {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: $whiteColor;
+            z-index: 1800;
+            .date-panel {
+                border-radius: 0;
+                position: relative;
+                width: 100%;
+                height: auto;
+                top: -31px;
+                right: 0;
+                
+                .bottom-area {
+                    padding-left: 24px;
+                }
+                .date-mains {
+                    height: 450px;
+                    overflow-y: auto;
+                    ::ng-deep {
+                        ngb-datepicker-navigation-select {
+                            display: none;
+                        }
+                        .ngb-dp-months {
+                            margin-top: 0;
+                        }
+                        .ngb-dp-arrow {
+                            display: none;
+                        }
+                        .ngb-dp-weekdays {
+                            .ngb-dp-weekday {
+                                width: 2.9rem;
+                                height: 2.9rem;
+                            }
+                        }
+                        ngb-datepicker {
+                            .ngb-dp-day {
+                                width: 45px;
+                                height: 45px;
+                                margin-bottom: 2px;
+                                &:focus,
+                                &:hover {
+                                    outline: none;
+                                    box-shadow: none;
+                                }
+                            }
+                            .ngb-dp-content {
+                                flex-direction: column;
+                            }
+                            .custom-day {
+                                width: 35px;
+                                height: 35px;
+                                line-height: 35px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

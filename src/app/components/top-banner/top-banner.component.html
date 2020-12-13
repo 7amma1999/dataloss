@@ -1,0 +1,24 @@
+<div class="white-panel color-panel flex"
+  [class.pink]="dataList['theme'] === 'pink'"
+  [class.orange]="dataList['theme'] === 'orange'">
+  <div class="circle-boxs bg-linear">
+    <h4 class="title">
+      {{dataList['category']}}
+    </h4>
+    <p class="date ">{{dataList['date']}}</p>
+  </div>
+  <!--end .cirlce-boxs-->
+  <div class="right-txt">
+    <div class="white-title">
+      {{dataList['title']}}
+    </div>
+    <p class="txt mobile-hide">
+      {{dataList['description']}}
+    </p>
+    <a href="javascript:;" class="btn btn-white-border">
+      More Details
+      <i class="icons icon-right"></i>
+    </a>
+  </div>
+</div>
+<!--end .color-panel-->

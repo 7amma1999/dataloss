@@ -1,0 +1,108 @@
+@import '../../../styles/variables';
+
+//.table-top 
+.table-top {
+    border-top: 1px solid #e8e9f1;
+    padding: 16px 19px;
+    .lefts {
+        .btn-border {
+            margin-right: 12px;
+        }
+    }
+}
+
+//.status-moudule
+.status-moudule {
+    position: relative;
+    &.open {
+        .status-panel {
+            display: block;
+        }
+    }
+    .checkbox-round-wrap {
+        height: 22px;
+    }
+    .status-panel {
+        display: none;
+        position: absolute;
+        top: 42px;
+        left: 0;
+        width: 277px;
+        box-shadow: 0 0 14px #e8e9f1;
+        border-radius: 15px;
+        border: 1px solid #ededee;
+        background-color: $whiteColor;
+        z-index: 999;
+        ul {
+            padding: 14px 17px 22px 29px;
+        }
+        li {
+            padding: 10px 0;
+            .left-txt {
+                color: $grayColor;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 16px;
+            }
+        }
+        .bottom-area {
+            height: 64px;
+            padding: 0 17px 0 29px;
+            border-top: 1px solid #e8e9f1;
+            .gray-links {
+                color: $grayColor;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 16px;
+            }
+            .btn-all-blue {
+                padding: 1px 20px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1023px) {
+    .content {
+        z-index: 9999;
+    }
+    .status-moudule {
+        &.open {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 999;
+            .status-panel {
+                position: relative;
+                width: 100%;
+                height: calc(100%);
+                overflow-y: auto;
+                border-radius: 0;
+                top: -30px;
+                ul {
+                    padding: 0;
+                    li {
+                        padding: 17px 15px;
+                        border-bottom: 1px solid #e8e9f1;
+                    }
+                }
+            }
+            .bottom-area {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background-color: $whiteColor;
+                .btn-all-blue {
+                    padding: 1px 20px;
+                    background-color: #0f3570;
+                    line-height: 33px;
+                    height: 35px;
+                }
+            }
+        }
+    }
+}

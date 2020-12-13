@@ -1,0 +1,10 @@
+@import '../../../styles/variables';
+
+.main-area {
+    width: 100px;
+    height: 100px;
+    canvas {
+        width: 100px!important;
+        height: 100px!important;
+    }
+}

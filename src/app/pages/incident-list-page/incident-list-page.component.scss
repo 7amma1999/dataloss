@@ -1,0 +1,30 @@
+@import '../../../styles/variables';
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1023px) {
+    app-sd-table-common {
+        ::ng-deep {
+            .table-top {
+                border-top: 0;
+                padding-top: 0;
+            }    
+        }
+    }
+    app-sd-table-common {
+        ::ng-deep {
+            .search-area {
+                .lefts {
+                    .left-txt {
+                        display: none;
+                    }
+                }
+                .rights {
+                    flex: 1;
+                    .btn-blue {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    
+}

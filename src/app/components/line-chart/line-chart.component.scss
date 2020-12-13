@@ -1,0 +1,62 @@
+@import '../../../styles/variables';
+
+//.purple-panel
+.purple-panel {
+    min-height: 168px;
+    background-color: #6f2c91;
+    .btn-more {
+        opacity: 0.35;
+    }
+    .chart-boxs {
+        padding-top: 20px;
+        .top-title {
+            color: $whiteColor;
+            padding: 0 26px;
+            .number {
+                color: $whiteColor;
+                font-size: 31px;
+                line-height: 36px;
+                font-weight: 700;
+                margin-bottom: 2px;
+            }
+            .up-txt {
+                line-height: 14px;
+                color: $whiteColor;
+                font-size: 12px;
+                font-weight: 500;
+                text-transform: uppercase;
+            }
+        }
+        .chart-main {
+            padding: 0 0 15px;
+            margin-top: -20px;
+            height: 110px;
+            display: flex;
+            justify-content: center;
+            canvas {
+                width: 231px!important;
+            }
+        }
+    }
+    &.blue {
+        background-color: #034ea2;
+    }
+}
+
+/* fix layout issue when smaller than 1366px width */
+@media (max-width: 1023px) {
+    //.purple-panel
+    .purple-panel {
+        .chart-boxs {
+            padding-top: 0;
+            .top-title {
+                padding: 0;
+            }
+            .chart-main {
+                canvas {
+                    max-width: calc(100% + 36px)!important;
+                }
+            }
+        }
+    }
+}

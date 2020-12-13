@@ -1,0 +1,30 @@
+<div class="modal-default reassign-incident">
+  <div class="modal-mains">
+    <a href="javascript:;" class="btn-close"
+      (click)="closeModal()">
+    </a>
+    <div class="pad">
+      <div class="title">Reassign Incident Handler</div>
+      <div class="min-height">
+        <div class="sm-tit">INCIDENT HANDLER</div>
+        <app-sd-user-selection
+          [inputPlaceholder]="'Search Employee ID or Name'"
+          [dataUser]="dataUser"
+          [userClickable]="true"
+          [showEmail]="true"
+          (selectUser)="selectUser($event)">
+        </app-sd-user-selection>
+      </div>
+    </div>
+    <div class="bot btns">
+      <div class="error-txt" *ngIf="showUserError">
+        You need to select a user.
+      </div>
+      <a href="javascript:;" class="btn btn-blue"
+        (click)="clickFinish()">
+        Finish Reassignment
+      </a>
+    </div>
+  </div>
+</div>
+<!-- end .modal-default -->

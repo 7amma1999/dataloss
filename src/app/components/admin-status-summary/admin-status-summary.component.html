@@ -1,0 +1,33 @@
+<div class="white-panel admin-status-summary mobile-hide">
+  <a href="javascript:;" class="btn-more other-more"></a>
+  <div class="top-title">
+    Admin Status Summary
+  </div>
+  <div class="chart-circle">
+    <div class="chart-img">
+      <app-sd-radar-chart
+        [dataList]="dataList">
+      </app-sd-radar-chart>
+
+      <div class="chart-txt">
+        <div class="txt top-txt">
+          DEACTIVATED
+        </div>
+        <div class="bottom-txt">
+          <span class="txt banned-txt">Banned</span>
+          <span class="txt active-txt">Active</span>
+        </div>
+        <!--end .bottom-txt-->
+      </div>
+    </div>
+    <!--end .chart-img-->
+  </div>
+  <!--end .chart-circle-->
+  <div class="bottom-example row">
+    <div class="col col-sm-4 items"
+      *ngFor="let item of dataList;">
+      <div class="top-txt">{{item['status']}}</div>
+      <div class="number {{item['color']}}">{{item['value']}}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,198 @@
+@import '../../../styles/variables';
+
+//.term-conditions
+.term-conditions {
+    &.modal-default {
+        display: block;
+    }
+    .modal-mains {
+        width: 1247px;
+        height: calc(100% - 90px);
+        position: absolute;
+        margin: 0 auto;
+        left: 50%;
+        margin-left: -623px;
+        top: 45px;
+        bottom: 45px;
+        overflow-y: auto;
+        border-radius: 5px;
+    }
+    .desktop-hide {
+        display: none;
+    }
+    .top-banner {
+        width: 100%;
+        position: relative;
+        img {
+            width: 100%;
+        }
+        .circle {
+            position: absolute;
+            left: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 238px;
+            height: 237px;
+            border-radius: 100%;
+            overflow: hidden;
+            background-image: linear-gradient(226deg, #02a9e0 0%, #026fb6 40%, #493393 100%);
+            display: flex;
+            align-items: center;
+            p {
+                width: 169px;
+                color: $whiteColor;
+                font-size: 35px;
+                font-weight: 500;
+                margin: 0 auto;
+            }
+        }
+    }
+    .article-box {
+        margin: 25px 20px 35px 45px;
+        height: 520px;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+        &::-webkit-scrollbar-track {
+            background-color: #e8e9f1;
+            -webkit-border-radius: 2em;
+            -moz-border-radius: 2em;
+            border-radius: 2em;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $grayColor;
+            background-clip: padding-box;
+            min-height: 28px;
+            -webkit-border-radius: 2em;
+            -moz-border-radius: 2em;
+            border-radius: 2em;
+        }
+        .title {
+            color: $blueColor;
+            font-size: 31px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .group {
+            margin-bottom: 22px;
+        }
+        .tit {
+            margin-bottom: 10px;
+            color: $grayColor;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        p {
+            color: $grayColor;
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+    }
+    .bot {
+        margin: 0 16px;
+        padding: 22px 0;
+        text-align: right;
+        border-top: solid 1px #ededee;
+        .btn {
+            height: 68px;
+            border-radius: 5px;
+            line-height: 68px;
+            margin-right: 20px;
+            padding: 0;
+            text-transform: inherit;
+        }
+        .btn-gray {
+            background-color: #ededee;
+            width: 145px;
+        }
+        .btn-blue {
+            width: 309px;
+            .mobile-hide {
+                color: $whiteColor;
+            }
+        }
+    }
+}
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1365px) {
+    .term-conditions {
+        .modal-mains {
+            width: 1000px;
+            margin-left: -500px;
+        }
+    }
+}
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1023px) {
+    //.term-conditions
+    .term-conditions{
+        display: flex;
+        .top-banner {
+            height: 299px;
+            overflow: hidden;
+            position: relative;
+            img {
+                position: absolute;
+                display: block;
+                left: -50%;
+                top: 0;
+                width: auto;
+                height: 100%;
+            }
+            .circle {
+                position: relative;
+            }
+        }
+        .modal-mains {
+            width: 100%;
+            height: calc(100%);
+            padding-top: 0;
+            position: relative;
+            margin: 0;
+            left: 0;
+            margin-left: 0;
+            top: 0;
+            bottom: 0;
+            overflow-y: auto;
+            border-radius: 0;
+            padding-bottom: 70px;
+        }
+        .article-box {
+            margin: 26px 17px;
+            .title {
+                color: $blueColor;
+                font-size: 31px;
+                font-weight: 700;
+                line-height: 36px;
+            }
+        }
+        .bot {
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+            padding: 12px 15px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: $whiteColor;
+            .btn {
+                height: 45px;
+                margin-right: 24px;
+                line-height: 45px;
+                &.btn-gray {
+                    width: auto;
+                    flex: 1;
+                }
+                &.btn-blue {
+                    width: auto;
+                    flex: 1;
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}

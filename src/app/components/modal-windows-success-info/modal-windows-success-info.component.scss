@@ -1,0 +1,84 @@
+@import '../../../styles/variables';
+
+//.new-admin
+.new-admin {
+    .modal-mains {
+        width: 255px;
+        border: 1px solid #ededee;
+        padding: 32px 50px;
+        &.p-22 {
+            padding-top: 22px;
+        }
+    }
+    .photo {
+        width: 92px;
+        height: 92px;
+        border-radius: 92px;
+        overflow: hidden;
+        margin: 0 auto 6px;
+        &.w-50 {
+            width: 50px!important;
+            height: auto;
+            border-radius: 0;
+            margin-bottom: 15px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .txt {
+        text-align: center;
+        margin-bottom: 24px;
+        &.mb-50 {
+            margin-bottom: 50px;
+        }
+        .name {
+            color: $grayColor;
+            font-size: 14px;
+            font-weight: 400;
+            &.font-bold {
+                font-size: 16px;
+                font-weight: 500;
+            }
+        }
+        .bold-500 {
+            color: $grayColor;
+            font-size: 16px;
+            font-weight: 500;
+            &.font-normal {
+                font-size: 14px;
+                font-weight: 400;
+            }
+        }
+    }
+    .btn-close {
+        height: 35px;
+        border-radius: 5px;
+        background-color: #0f3570;
+        a {
+            display: block;
+            line-height: 35px;
+            text-align: center;
+            color: $whiteColor;
+            font-size: 14px;
+            font-weight: 500;
+            &:hover {
+                opacity: 0.85;
+            }
+        }
+    }
+}
+
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1023px) {
+    //.new-admin
+    .new-admin {
+        .modal-mains {
+            height: auto;
+            padding: 22px 50px 34px;
+            border-radius: 5px;
+        }
+    }
+}
+

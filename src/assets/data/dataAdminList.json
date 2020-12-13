@@ -1,0 +1,62 @@
+[
+  {
+    "photoUrl": "/assets/i/user01.png",
+    "employeeName": "Jarmaine Lire",
+    "email": "jarmaine_lire@dlp.com",
+    "admin": "Modify",
+    "can": "Full",
+    "incidents": "Full",
+    "isActive": false,
+    "status": "Deactivated"
+  },
+  {
+    "photoUrl": "/assets/i/user02.png",
+    "employeeName": "Marc Carmic",
+    "email": "marccc@dlp.com",
+    "admin": "Full",
+    "can": "Modify",
+    "incidents": "Modify",
+    "isActive": true,
+    "status": "Active"
+  },
+  {
+    "photoUrl": "/assets/i/user03.png",
+    "employeeName": "Rupert Grinn",
+    "email": "r_grinn@dlp.com",
+    "admin": "",
+    "can": "",
+    "incidents": "",
+    "isActive": false,
+    "status": "Banned"
+  },
+  {
+    "photoUrl": "/assets/i/user04.png",
+    "employeeName": "Lorrain Imar",
+    "email": "lorrain_imar@dlp.com",
+    "admin": "View",
+    "can": "View",
+    "incidents": "Full",
+    "isActive": true,
+    "status": "Active"
+  },
+  {
+    "photoUrl": "/assets/i/user05.png",
+    "employeeName": "Claire Yates",
+    "email": "c_yates@dlp.com",
+    "admin": "Modify",
+    "can": "View",
+    "incidents": "View",
+    "isActive": true,
+    "status": "Active"
+  },
+  {
+    "photoUrl": "/assets/i/user06.png",
+    "employeeName": "Hort Porgiun",
+    "email": "h_porguin@dlp.com",
+    "admin": "Full",
+    "can": "Full",
+    "incidents": "Full",
+    "isActive": true,
+    "status": "Active"
+  }
+]

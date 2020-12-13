@@ -1,0 +1,47 @@
+<div class="date-wrapper"
+  [class.open]="showDate"
+  (clickOutside)="showDate = false">
+  <a href="javascript:;" class="btn btn-border"
+    [class.active]="hasSubmitted"
+    (click)="showDate = !showDate;">
+    {{shownValue}}
+  </a>
+  <div class="date-panel">
+    <div class="mobile-back-header flex-grid mobile-show desktop-hide">
+      <a href="javascript:;" class="btn-back"
+        (click)="showDate = false;">
+      </a>
+      <div class="title">
+        Pick Date Range
+      </div>
+    </div>
+    <!--end .mobile-back-header-->
+    <div class="date-mains">
+      <ngb-datepicker #datePickerInput="ngbDatepicker"
+        (dateSelect)="onDateSelection($event)"
+        [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden">
+      </ngb-datepicker>
+
+      <ng-template #t let-date let-focused="focused">
+        <span class="custom-day"
+              [class.focused]="focused"
+              [class.range]="isRange(date)"
+              [class.faded]="isHovered(date) || isInside(date)"
+              (mouseenter)="hoveredDate = date"
+              (mouseleave)="hoveredDate = null">
+          {{ date.day }}
+        </span>
+      </ng-template>
+    </div>
+    <div class="bottom-area flex-grid">
+      <a href="javascript:;" class="gray-links"
+        (click)="clickClear();">
+        Clear
+      </a>
+      <a href="javascript:;" class="btn btn-all-blue"
+        (click)="clickSave();showDate = false;">
+        Save
+      </a>
+    </div>
+  </div>
+</div>

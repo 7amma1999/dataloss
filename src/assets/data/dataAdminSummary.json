@@ -1,0 +1,76 @@
+{
+  "banner": {
+    "category": "General Assembly",
+    "date": "Feb 23,2020",
+    "title": "We will have an General Assembly in India Office",
+    "description": "Proin id eros elit. In pretium aliquam nulla, sed consequat turpis consequat faucibus. Proin dapibus massa diam, eget auctor tellus tempus ac. Vestibulum aliquet et felis nec sodales. Vivamus ut sagittis eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. ",
+    "theme": "pink"
+  },
+  "totalLoginsValue": 201,
+  "totalLogins": [
+    {
+      "month": "Aug",
+      "percentage": "12"
+    },
+    {
+      "month": "Sep",
+      "percentage": "12"
+    },
+    {
+      "month": "Oct",
+      "percentage": "10"
+    },
+    {
+      "month": "Nov",
+      "percentage": "12"
+    },
+    {
+      "month": "Dec",
+      "percentage": "14"
+    },
+    {
+      "month": "Jan",
+      "percentage": "12"
+    }
+  ],
+  "adminsViaRegion": [
+    {
+      "country": "India",
+      "number": 302,
+      "color": "purple"
+    },
+    {
+      "country": "Americas",
+      "number": 104,
+      "color": "blue"
+    },
+    {
+      "country": "Middle East",
+      "number": 34,
+      "color": "green"
+    },
+    {
+      "country": "Asia-Pacific",
+      "number": 11,
+      "color": "light-blue"
+    }
+  ],
+  "totalDLPAdmins": 1039,
+  "adminStatusSummary": [
+    {
+      "status": "Active",
+      "value": 503,
+      "color": "green"
+    },
+    {
+      "status": "Deactivated",
+      "value": 241,
+      "color": "red"
+    },
+    {
+      "status": "Banned",
+      "value": 36,
+      "color": "gray"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+<div class="pages ">
+  <a href="javascript:;" class="btn-page btn-prev"
+    [class.disabled]="(pageData.pageIndex === 0) || (pageData.totalPage === 0)"
+    (click)="clickPrev()">
+    Prev
+  </a>
+  <ul>
+    <li>
+      <a href="javascript:;" class="link-number"
+        *ngIf="pageData.pageIndex >= 9">
+        ...
+      </a>
+    </li>
+    <li *ngFor="let item of currentPages();">
+      <a href="javascript:;" class="link-number"
+        [class.active]="pageData.pageIndex === item"
+        (click)="clickPageLink(item)">
+        {{item + 1}}
+      </a>
+    </li>
+    <li>
+      <a href="javascript:;" class="link-number"
+        *ngIf="(pageData.totalPage - (pageData.pageIndex > 8 ? pageData.pageIndex : 0)) >= 10">
+        ...
+      </a>
+    </li>
+  </ul>
+  <a href="javascript:;" class="btn-page btn-next"
+    [class.disabled]="(pageData.pageIndex === pageData.totalPage - 1) || (pageData.totalPage === 0)"
+    (click)="clickNext()">
+    Next
+  </a>
+</div>
+<!--end .pages-->

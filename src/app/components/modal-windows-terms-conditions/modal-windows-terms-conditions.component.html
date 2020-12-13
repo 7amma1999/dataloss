@@ -1,0 +1,73 @@
+<div class="modal-default term-conditions"
+  *ngIf="isShownTermsConditions">
+  <div class="modal-mains">
+    <div class="mobile-back-header flex-grid mobile-show desktop-hide">
+      <a href="javascript:;" class="btn-back"
+        (click)="clickClose.emit()">
+      </a>
+      <div class="title">
+        Terms and Conditions
+      </div>
+    </div>
+    <!--end .mobile-back-header-->
+    <div class="top-banner">
+      <img src="/assets/i/term-banner.png" alt="img">
+      <div class="circle">
+        <p>
+          Terms and
+          Conditions
+        </p>
+      </div>
+    </div>
+    <!-- end .top-banner -->
+    <div class="article-box">
+      <h2 class="title">Terms and Conditions</h2>
+      <div class="group">
+        <h3 class="tit">Objective:</h3>
+        <p>
+          This Privacy Statement articulates the privacy and data protection principles followed by DLP Limited (hereinafter referred to as "DLP") and its entities around the world with regards to the personal information of its customers (including products, outsourcing and other services clients), partners, employees (current or former employees, trainees), applicants, contractors, prospects and vendors and current or former members of the Board of Directors, whose personal information are processed by DLP ("Data Subjects").
+        </p>
+        <p>
+          This Privacy Statement explains the use and protection of personal information collected by DLP. It applies to any personal information you provide to DLP and, subject to local law, any personal information we collect from other sources.
+        </p>
+        <p>
+          Throughout this Privacy Statement, "DLP" refers to DLP Limited, including its affiliates and subsidiaries (also referred to as "we", "us", or "our").
+        </p>
+      </div>
+      <!-- end .group -->
+      <div class="group">
+        <h3 class="tit">Personal information collected by DLP:</h3>
+        <p>
+        We may collect personal information such as your First Name, Last Name, E-mail Address, Job Title, Organization Name, Country, City and Phone Number.  When you provide information that enables us to respond to your request for products or services, we will, wherever permissible by relevant laws, collect, use and disclose this information to third parties for the purposes described in this Privacy Statement.
+        </p>
+      </div>
+      <!-- end .group   -->
+      <div class="group">
+        <h3 class="tit">Personal information that you provide to DLP directly through websites or emails</h3>
+        <p>
+        We may collect personal information such as your First Name, Last Name, E-mail Address, Job Title, Organization Name, Country, City and Phone Number when you fill forms on or raise a query through our websites, or send emails, call us or write to us.
+        </p>
+      </div>
+      <!-- end .group   -->
+      <div class="group">
+        <h3 class="tit">Personal information that is automatically collected by DLP when you use DLP websites</h3>
+        <p>         
+        In some instances, DLP automatically collects personal information pertaining to you when you visit our websites and through e-mails that we may exchange. We may use automated technologies including the use of web server logs to collect IP addresses, device details, cookies and web beacons. The collection of this information will allow us to improve the effectiveness of DLP websites and our marketing activities. Please see the section below on cookies for further details.
+        </p>
+      </div>
+      <!-- end .group   -->
+    </div>
+    <!-- end .article-box -->
+    <div class="bot btns">
+      <a href="javascript:;" class="btn btn-gray"
+        (click)="clickTermsConditions.emit(false)">
+        Disagree
+      </a>
+      <a href="javascript:;" class="btn btn-blue"
+        (click)="clickTermsConditions.emit(true)">
+        Agree <span class="mobile-hide">with terms and conditions</span>
+      </a>
+    </div>
+  </div>
+</div>
+<!-- end .modal-default -->

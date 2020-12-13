@@ -1,0 +1,23 @@
+<div class="modal-default new-admin"
+  *ngIf="modalData['name'] === 'modal-windows-success-info'">
+  <div class="modal-mains">
+    <div class="photo">
+      <img src="{{modalData['itemData']['photoUrl']}}" alt="img">
+    </div>
+    <div class="txt">
+      <div class="name">
+        {{modalData['itemData']['title']}}
+      </div>
+      <p class="bold-500">
+        {{modalData['itemData']['content']}}
+      </p>
+    </div>
+    <div class="btn-close">
+      <a href="javascript:;"
+        (click)="closeModal()">
+        Close
+      </a>
+    </div>
+  </div>
+</div>
+<!-- end .modal-default -->

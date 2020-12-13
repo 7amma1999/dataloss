@@ -1,0 +1,379 @@
+<div class="data-module">
+  <app-sd-table-header
+    [tableType]="tableType"
+    [userRole]="userRole"
+    (clickNew)="toNewIncident()"
+    (changSearch)="changSearch($event)">
+  </app-sd-table-header>
+
+  <app-sd-table-filter
+    [tableType]="tableType"
+    [userRole]="userRole"
+    (changeFilter)="changeAuditLogsFilter($event)">
+  </app-sd-table-filter>
+
+  <div class="table-data"
+    *ngIf="(tableType === 'admin-list')
+        || (tableType === 'incident-list')">
+    <div class="row-th"
+      *ngIf="tableType === 'admin-list'">
+      <div class="col-th employee-col">
+        <a href="javascript:;" class="spacing"
+          (click)="clickSort('employeeName')">
+          EMPLOYEE DETAILS
+          <span class="btn-sort">
+          </span>
+        </a>
+      </div>
+      <div class="col-th email-col">
+        <a href="javascript:;" class="spacing"
+          (click)="clickSort('email')">
+          EMAIL
+          <span class="btn-sort"></span>
+        </a>
+      </div>
+      <div class="col-th admin-col">
+        <div class="spacing">
+          ADMIN
+        </div>
+      </div>
+      <div class="col-th can-col">
+        <div class="spacing">
+          CAN
+        </div>
+      </div>
+      <div class="col-th incidents-col">
+        <div class="spacing">
+          INCIDENTS
+        </div>
+      </div>
+      <div class="col-th active-col">
+        <a href="javascript:;" class="spacing"
+          (click)="clickSort('isActive')">
+          ACTIVE?
+          <span class="btn-sort"></span>
+        </a>
+      </div>
+      <div class="col-th status-col">
+        <a href="javascript:;" class="spacing"
+          (click)="clickSort('status')">
+          STATUS
+          <span class="btn-sort"></span>
+        </a>
+      </div>
+      <div class="col-th spacing-col">
+        <div class="spacing">
+        </div>
+      </div>
+    </div>
+
+    <div class="row-th"
+      *ngIf="tableType === 'incident-list'">
+      <div class="col-th employee-col">
+        <a href="javascript:;" class="spacing"
+          (click)="clickSort('employeeParticulars')">
+          EMPLOYEE PARTICULARS
+          <span class="btn-sort"></span>
+        </a>
+      </div>
+      <div class="col-th handler-col">
+        <a href="javascript:;" class="spacing"
+          (click)="clickSort('incidentHandler')">
+          INCIDENT HANDLER
+          <span class="btn-sort"></span>
+        </a>
+      </div>
+      <div class="col-th iincident-col">
+        <a href="javascript:;" class="spacing"
+          (click)="clickSort('incidentId')">
+          IINCIDENT ID
+          <span class="btn-sort"></span>
+        </a>
+      </div>
+      <div class="col-th type-col">
+        <a href="javascript:;" class="spacing"
+          (click)="clickSort('type')">
+          TYPE
+          <span class="btn-sort"></span>
+        </a>
+      </div>
+      <div class="col-th sbu-col">
+        <a href="javascript:;" class="spacing"
+          (click)="clickSort('sbu')">
+          SBU
+          <span class="btn-sort"></span>
+        </a>
+      </div>
+      <div class="col-th ca-status-col">
+        <a href="javascript:;" class="spacing"
+          (click)="clickSort('caStatus')">
+          CA STATUS
+          <span class="btn-sort"></span>
+        </a>
+      </div>
+      <div class="col-th spacing-col">
+        <div class="spacing">
+        </div>
+      </div>
+    </div>
+
+    <div class="table-body">
+      <ng-container
+        *ngFor="let item of dataList;let i = index">
+      <div class="row-td"
+        *ngIf="tableType === 'admin-list'">
+        <div class="col-td employee-col">
+          <div class="spacing">
+            <div class="user-module">
+              <a href="javascript:;" class="left-img">
+                <img src="{{item['photoUrl']}}" alt="photo" />
+              </a>
+              <div class="right-txt flex">
+                <span class="names">
+                  {{item['employeeName']}}
+                </span>
+              </div>
+            </div>
+            <!--end .user-module-->
+          </div>
+        </div>
+        <div class="col-td email-col">
+          <div class="spacing">
+            {{item['email']}}
+          </div>
+        </div>
+        <div class="col-td admin-col">
+          <div class="spacing">
+            {{item['admin'] !== '' ? item['admin'] : '-'}}
+          </div>
+        </div>
+        <div class="col-td can-col">
+          <div class="spacing">
+            {{item['can'] !== '' ? item['can'] : '-'}}
+          </div>
+        </div>
+        <div class="col-td incidents-col">
+          <div class="spacing">
+            {{item['incidents'] !== '' ? item['incidents'] : '-'}}
+          </div>
+        </div>
+        <div class="col-td active-col">
+          <div class="spacing">
+            <div class="checkbox-round-wrap"
+              *ngIf="item['status'] !== 'Banned'">
+             <input type="checkbox" id="check-active-{{i}}"
+               [(ngModel)]="item['isActive']" disabled/>
+             <label for="check-active-{{i}}"></label>
+           </div>
+           <!--end .checkbox-wrap-->
+          </div>
+        </div>
+        <div class="col-td status-col">
+          <div class="spacing">
+            <span class="color-block"
+              [class.red]="item['status'] === 'Deactivated'"
+              [class.green]="item['status'] === 'Active'"
+              [class.gray]="item['status'] === 'Banned'">
+              {{item['status']}}
+            </span>
+          </div>
+        </div>
+        <div class="col-td spacing-col">
+          <div class="spacing">
+            <div class="tip-module"
+              [class.open]="item['opened']"
+              (clickOutside)="item['opened'] = false">
+              <a href="javascript:;" class="btn-more"
+                (click)="item['opened'] = !item['opened']">
+              </a>
+              <div class="tip-panel">
+                <ul>
+                  <li
+                    *ngIf="item['status'] !== 'Banned'">
+                    <a href="javascript:;" class="tab-items"
+                      (click)="clickEdit.emit(i)">
+                      <i class="icons icon-edit"></i>
+                      Edit
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:;" class="tab-items"
+                      (click)="clickDeleteAdmin.emit(i)">
+                      <i class="icons icon-trash"></i>
+                      Delete
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!--tip-module-->
+          </div>
+        </div>
+      </div>
+      <!--end .row-td-->
+
+      <div class="row-td incident-row"
+        *ngIf="tableType === 'incident-list'">
+        <div class="col-td employee-col">
+          <div class="spacing">
+            <div class="user-module">
+              <a href="javascript:;" class="left-img">
+                <img src="{{item['employeeParticulars']['photoUrl']}}" alt="photo" />
+              </a>
+              <div class="right-txt flex">
+                <span class="top-txt">
+                  {{item['employeeParticulars']['name']}}
+                </span>
+                <div class="bold-txt">
+                  {{item['employeeParticulars']['email']}}
+                </div>
+              </div>
+            </div>
+            <!--end .user-module-->
+          </div>
+        </div>
+        <div class="col-td handler-col">
+          <div class="spacing">
+            <div class="user-module">
+              <a href="javascript:;" class="left-img">
+                <img src="{{item['incidentHandler']['photoUrl']}}" alt="photo" />
+              </a>
+              <div class="right-txt flex">
+                <span class="top-txt">
+                  {{item['incidentHandler']['name']}}
+                </span>
+                <div class="bold-txt">
+                  {{item['incidentHandler']['email']}}
+                </div>
+              </div>
+            </div>
+            <!--end .user-module-->
+          </div>
+        </div>
+        <div class="col-td iincident-col">
+          <div class="spacing">
+            {{item['incidentId']}}
+          </div>
+        </div>
+        <div class="col-td type-col">
+          <div class="spacing">
+            {{item['type']}}
+          </div>
+        </div>
+        <div class="col-td sbu-col">
+          <div class="spacing">
+            {{item['sbu']}}
+          </div>
+        </div>
+        <div class="col-td ca-status-col">
+          <div class="spacing">
+            <span class="color-block dark-green"
+              [class.dark-green]="item['caStatus']['status'] === 'Employee'"
+              [class.green]="item['caStatus']['status'] === 'Manager'"
+              [class.dark-blue]="item['caStatus']['status'] === 'Resolved'"
+              [class.gray]="item['caStatus']['status'] === 'Draft'"
+              [class.red]="item['caStatus']['status'] === 'Manager (Due)'">
+              {{item['caStatus']['status']}} {{item['caStatus']['daysNumber'] > 0 ? '(' + item['caStatus']['daysNumber'] + 'D)' : ''}}
+            </span>
+          </div>
+        </div>
+        <div class="col-td incident-spacing spacing-col">
+          <div class="spacing">
+            <div class="tip-module"
+              [class.open]="item['opened']"
+              (clickOutside)="item['opened'] = false">
+              <a href="javascript:;" class="btn-more"
+                (click)="item['opened'] = !item['opened']">
+              </a>
+              <div class="tip-panel w116">
+                <ul>
+                  <li>
+                    <a href="javascript:;" class="tab-items">
+                      <i class="icons icon-edit"></i>
+                      Edit
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:;" class="tab-items"
+                      *ngIf="item['caStatus']['status'] !== 'Resolved'"
+                      (click)="clickRemind.emit(item['employeeParticulars']['name'])">
+                      <i class="icons icon-remind"></i>
+                      Remind
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:;" class="tab-items"
+                      (click)="clickReassign.emit(i)">
+                      <i class="icons icon-reassign"></i>
+                      Reassign
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:;" class="tab-items"
+                      (click)="clickDeleteIncident.emit(i)">
+                      <i class="icons icon-trash"></i>
+                      Delete
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!--tip-module-->
+          </div>
+        </div>
+      </div>
+      <!--end .row-td-->
+      </ng-container>
+    </div>
+  </div>
+  <!--end .table-data-->
+
+  <div class="admin-list-module"
+    *ngIf="tableType === 'audit-logs'">
+    <div class="user-list">
+      <ul>
+        <li
+           [class.active]="selectedIndex === i"
+           (click)="selectedIndex = i;selectLog.emit(selectedIndex)"
+           *ngFor="let item of dataList;let i = index">
+          <div class="user-module">
+            <a href="javascript:;" class="left-img">
+              <img src="{{item['photoUrl']}}" alt="photo" />
+            </a>
+            <div class="right-txt ">
+              <div class="top-txt"
+                [innerHTML]="getContentTrusted(item['logDescription'])">
+              </div>
+              <p class="gray-txt">
+                <span class="txt">{{item['logTime']}} </span>
+                <ng-container
+                  *ngIf="item['numberOfChanges'] !== 0">
+                  <span class="points"></span>
+                  <span class="txt">
+                    {{item['numberOfChanges']}} change{{item['numberOfChanges'] > 1 ? 's' : ''}}
+                  </span>
+                </ng-container>
+              </p>
+            </div>
+          </div>
+          <a href="javascript:;" class="btn btn-green"
+            *ngIf="item['logType'] === 'Access Control'">
+            ACCESS CONTROL
+          </a>
+          <a href="javascript:;" class="btn btn-all-blue"
+            *ngIf="item['logType'] === 'Incidents'">
+            INCIDENTS
+          </a>
+          <a href="javscript:;" class="btn-right-arrow desktop-hide mobile-show"></a>
+        </li>
+      </ul>
+    </div>
+    <!--end .user-list-->
+  </div>
+
+  <app-sd-pagination
+    [pageData]="pageData"
+    (changePageIndex)="changePageIndex()">
+  </app-sd-pagination>
+</div>
+<!--end .data-row-->

@@ -1,0 +1,68 @@
+[
+  {
+    "photoUrl": "/assets/i/photo02.png",
+    "logDescription": "<strong>Catherine Prescot</strong> finished an action",
+    "logTime": "30 minutes ago",
+    "numberOfChanges": 2,
+    "logType": "Incidents",
+    "logDetails": {
+      "userRole": "Administrator",
+      "emailAddress": "a_sullivan@dlp.com ",
+      "ipAddress": "142.23.22.23",
+      "changesList": [
+        {
+          "category": "Set Admin Status",
+          "initiatedBy": "Qartha Eazir",
+          "remove": "Active",
+          "add": "Deactivated"
+        },
+        {
+          "category": "Incident Holder Reassign for IN-773223",
+          "initiatedBy": "Kartha Pazir",
+          "remove": "Andrew Sulivan",
+          "add": "Catherine Prescot"
+        }
+      ]
+    }
+  },
+  {
+    "photoUrl": "/assets/i/user07.png",
+    "logDescription": "<strong>Andrew Sulivan</strong> assigned to IN-783223",
+    "logTime": "1 hour ago",
+    "numberOfChanges": 2,
+    "logType": "Incidents",
+    "logDetails": {
+      "userRole": "Administrator",
+      "emailAddress": "a_sullivan@dlp.com ",
+      "ipAddress": "15.22.28.24",
+      "changesList": [
+        {
+          "category": "Set Admin Status",
+          "initiatedBy": "Qartha Eazir",
+          "remove": "Active",
+          "add": "Deactivated"
+        },
+        {
+          "category": "Incident Holder Reassign for IN-773223",
+          "initiatedBy": "Kartha Pazir",
+          "remove": "Andrew Sulivan",
+          "add": "Catherine Prescot"
+        }
+      ]
+    }
+  },    
+  {
+    "photoUrl": "/assets/i/user01.png",
+    "logDescription": "Created new incident <strong>IN-429178</strong>",
+    "logTime": "1 hour ago",
+    "numberOfChanges": 0,
+    "logType": "Incidents",
+    "logDetails": {
+      "userRole": "Administrator",
+      "emailAddress": "a_sullivan@dlp.com ",
+      "ipAddress": "142.23.22.23",
+      "changesList": [
+      ]
+    }
+  }
+]

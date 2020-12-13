@@ -1,0 +1,24 @@
+<div class="white-panel purple-panel {{theme}}">
+  <a href="javascript:;" class="btn-more"></a>
+  <div class="chart-boxs">
+    <div class="top-title">
+      <div class="number">
+        {{totalValue}}
+      </div>
+      <div class="up-txt">
+        {{label}}
+      </div>
+    </div>
+    <div class="chart-main">
+      <canvas baseChart
+        [datasets]="chartValues"
+        [labels]="chartLables"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType">
+      </canvas>
+    </div>
+  </div>
+</div>
+<!--end .purple-panel-->

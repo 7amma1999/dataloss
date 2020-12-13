@@ -1,0 +1,103 @@
+@import '../../../styles/variables';
+
+//.status-graph-module
+.status-graph-module {
+    padding: 15px 19px;
+    .bottom-area {
+        border-top: 1px solid #e8e9f1;
+        margin-top: 20px;
+        padding: 8px 23px;
+        .lefts {
+            .title {
+                color: $darkGrayColor;
+                font-size: 12px;
+                font-weight: 700;
+                line-height: 14px;
+                text-transform: uppercase;
+            }
+            .txt {
+                color: $grayColor;
+                font-size: 14px;
+                line-height: 20px;
+                font-weight: 400;
+                line-height: 20px;
+            }
+        }
+        .btn-info {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: url(/assets/i/icon-i@2x.png) center center no-repeat;
+            background-size: 28px 28px;
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+        }
+    }
+    .two-circle-chart {
+        padding-top: 12px;
+        justify-content: space-around;
+        .items {
+            position: relative;
+            justify-content: center;
+            position: relative;
+            .center-txt {
+                position: absolute;
+                top: 28px;
+                left: 50%;
+                margin-left: -31px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                .number {
+                    margin-bottom: 4px;
+                    font-size: 25px;
+                    font-weight: 700;
+                    line-height: 26px;
+                    &.dark-green {
+                        color: #00b49d;
+                    }
+                    &.green {
+                        color: #a5cf4c;
+                    }
+                }
+                .txt {
+                    color: $grayColor;
+                    font-size: 12px;
+                    line-height: 14px;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                }
+            }
+            .bottom-txt {
+                color: $grayColor;
+                font-size: 14px;
+                line-height: 20px;
+                font-weight: 700;
+                text-align: center;
+            }
+        }
+    }
+}
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1156px) {
+    .status-graph-module {
+        .two-circle-chart {
+            flex-direction: column;
+            .items {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1120px) {
+    //.status-graph-module
+    .status-graph-module {
+        .bottom-area {
+            padding: 8px 10px;
+        }
+    }
+}

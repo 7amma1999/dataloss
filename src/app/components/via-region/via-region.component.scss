@@ -1,0 +1,121 @@
+@import '../../../styles/variables';
+
+//.admins-region-panel
+.admins-region-panel {
+    padding: 11px 19px;
+    min-height: 168px;
+    //.chart-bars
+    .chart-bars {
+        li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            .lable-txt {
+                flex: 0 0 86px;
+                max-width: 86px;
+                margin-right: 20px;
+                color: $grayColor;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 16px;
+            }
+            .line-bar {
+                flex: 1;
+                display: flex;
+                .bg-progress {
+                    flex: 1;
+                    margin: 8px 0 0 0;
+                    height: 7px;
+                    position: relative;
+                    border-radius: 4px;
+                    background-color: #e8e9f1;
+                    flex: 0 0 83%;
+                    max-width: 83%;
+                }
+                .right-number {
+                    color: #7a329c;
+                    font-size: 16px;
+                    font-weight: 700;
+                    line-height: 20px;
+                    text-align: right;
+                    flex: 1;
+                }
+                .color-bar {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    display: block;
+                    height: 100%;
+                    border-radius: 4px;
+                    &.w80 {
+                        width: 80%;
+                    }
+                    &.w70 {
+                        width: 70%;
+                    }
+                    &.w50 {
+                        width: 50%;
+                    }
+                    &.w20 {
+                        width: 20%;
+                    }
+                }
+                &.purple {
+                    .color-bar {
+                        background: #6f2c91;
+                    }
+                    .right-number {
+                        color: #6f2c91;
+                    }
+                }
+                &.blue {
+                    .color-bar {
+                        background: #0458ac;
+                    }
+                    .right-number {
+                        color: #0458ac;
+                    }
+                }
+                &.green {
+                    .color-bar {
+                        background: #78c955;
+                    }
+                    .right-number {
+                        color: #78c955;
+                    }
+                }
+                &.light-blue {
+                    .color-bar {
+                        background: #02a2e0;
+                    }
+                    .right-number {
+                        color: #02a2e0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1023px) {
+    //.admins-region-panel
+    .admins-region-panel {
+        padding: 11px 14px;
+        height: calc(100% - 17px);
+        .chart-bars {
+            margin-top: 11px;
+            li {
+                .line-bar {
+                    .bg-progress {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

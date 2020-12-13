@@ -1,0 +1,37 @@
+<div class="search-area flex-grid">
+  <div class="lefts flex">
+    <div class="left-txt">
+      {{tableType === 'admin-list' ? 'Admin List' : (tableType === 'audit-logs' ? 'Audit Logs' : 'Incident List')}}
+    </div>
+    <div class="search-module">
+      <div class="inputs">
+        <a href="javascript:;" class="btn-search"></a>
+        <input type="text"
+          [(ngModel)]="searchText"
+          (keyup)="changSearch.emit(searchText)"
+          placeholder="{{tableType === 'admin-list' ? 'Search Employee' : (tableType === 'audit-logs' ? 'Search User' : 'Search Employee or Incident ID ')}}" />
+      </div>
+    </div>
+    <!--search-module-->
+  </div>
+  <!--end.lefts-->
+  <div class="rights"
+    *ngIf="(tableType === 'admin-list')
+        || (tableType === 'incident-list')">
+    <a href="javascript:;" class="btn btn-blue"
+      *ngIf="tableType === 'admin-list'"
+      (click)="clickNew.emit()">
+      <i class="icons icon-new-user"></i>
+       New Admin
+    </a>
+    <a href="javascript:;" class="btn btn-blue"
+      *ngIf="(tableType === 'incident-list')
+           && userRole === 'Administrators'"
+      (click)="clickNew.emit()">
+      <i class="icons icon-warning"></i>
+       New Incident
+    </a>
+  </div>
+  <!--end .rights-->
+</div>
+<!--end .search-area-->

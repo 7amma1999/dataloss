@@ -1,0 +1,120 @@
+@import '../../../styles/variables';
+
+//.admin-status-summary
+.admin-status-summary {
+    padding: 15px;
+    .chart-circle {
+        position: relative;
+    }
+    .chart-img {
+        width: 211px;
+        height: auto;
+        margin: 52px auto 55px;
+        position: relative;
+    }
+    .chart-circle {
+        position: relative;
+    }
+    .chart-txt {
+        top: 0;
+        left: 0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        .txt {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            &.top-txt {
+                color: $redColor;
+                text-align: center;
+                margin-top: -20px;
+            }
+            &.banned-txt {
+                color: $darkGrayColor;
+            }
+            &.active-txt {
+                color: $greenColor;
+            }
+        }
+    }
+    .bottom-txt {
+        bottom: 20px;    
+        display: flex;
+        justify-content: space-between;
+    }
+    //.bottom-example
+    .bottom-example {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .items {
+            border-right: 1px solid #e8e9f1;
+            text-align: center;
+            width: 33.33333333%;
+            padding: 0 10px;
+            &:last-child {
+                border-right: 0;
+            }
+            .top-txt {
+                margin-bottom: 6px;
+                color: $darkGrayColor;
+                font-size: 12px;
+                font-weight: 700;
+                line-height: 14px;
+                text-transform: uppercase;
+            }
+            .number {
+                color: $greenColor;
+                font-size: 31px;
+                font-weight: 700;
+                &.green {
+                    color: $greenColor;
+                }
+                &.red {
+                    color: $redColor;
+                }
+                &.gray {
+                    color: $grayColor;
+                }
+            }
+        }
+    }
+}
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1348px) {
+    //.admin-status-summary
+    .admin-status-summary {
+        //.bottom-example
+        .bottom-example {
+            .items {
+                flex: 0 0 30%;
+                max-width: 30%;
+                padding: 0 3px;
+                &:nth-child(2) {
+                    flex: 0 0 40%;
+                    max-width: 40%;
+                }
+                .top-txt {
+                    font-size: 10px;
+                    word-break: break-word;
+                }
+                .number {
+                    font-size: 28px;
+                }
+            }
+        }
+    }
+}
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1075px) {
+    .admin-status-summary {
+        .chart-txt {
+            height: 86%;
+            width: 96%;
+        }
+    }
+}

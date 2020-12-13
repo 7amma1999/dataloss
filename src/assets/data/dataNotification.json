@@ -1,0 +1,4 @@
+{
+  "alertMessage": "This is an Information Security Alert on Potential Data Leak Response with assessment within 12 business hours.",
+  "content": "<div class='dear-box'><div class='name-bar'>Dear Andrew Sullivan,</div><p class='txt pb20'>System observed file movement to external source. Since it matches defined rule sets, it could be an information security concern. </p><p class='txt'>As manager of this process request to validate and assess the impact on Customer / DLP IP (Intellectual Property) and violation of MSA/SOW, if any.</p></div><div class='click-area'><div class='top-txt'>Please click on link to launch application and provide inputs</div><div class='blue-border-box'><a href='javascript:;' class='btn-link'>https://dlp@com/ief5q</a></div></div><div class='regars-txt'><div class='tops'>Regards,</div><div class='bold-txt'>IRMC - Information Protection</div></div>"
+}

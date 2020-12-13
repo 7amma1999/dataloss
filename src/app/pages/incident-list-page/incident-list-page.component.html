@@ -1,0 +1,74 @@
+<app-sd-header>
+</app-sd-header>
+
+<div class="content">
+  <div class="row"
+    *ngIf="dataSummary">
+    <div class="col col-lg-9 col-md-12">
+      <div class="mobile-hide">
+        <app-sd-top-banner
+          [dataList]="dataSummary['banner']" >
+        </app-sd-top-banner>
+      </div>
+      <app-sd-table-common
+        *ngIf="dataList"
+        [dataList]="dataList"
+        [pageData]="pageData"
+        [userRole]="userRole"
+        [tableType]="'incident-list'"
+        (clickRemind)="clickRemind($event)"
+        (clickReassign)="clickReassign($event)"
+        (clickDeleteIncident)="clickDeleteIncident($event)"
+        (changeTableParamters)="changeTableParamters($event)">
+      </app-sd-table-common>
+    </div>
+    <!--end .col-->
+    <div class="col col-lg-3 col-md-12 mobile-hide">
+      <app-sd-line-chart
+        [label]="'TOTAL INCIDENTS'"
+        [theme]="'blue'"
+        [totalValue]="dataSummary['totalIncidentsValue']"
+        [dataList]="dataSummary['totalIncidents']">
+      </app-sd-line-chart>
+
+      <app-sd-via-region
+        *ngIf="userRole === 'Administrators'"
+       [dataList]="dataSummary['incidentsViaRegion']">
+      </app-sd-via-region>
+
+      <app-sd-status-graph
+        *ngIf="userRole === 'Administrators'"
+        [dataList]="dataSummary['statusGraph']">
+      </app-sd-status-graph>
+
+      <app-sd-audit-logs-list
+        [title]="'Incident Audit Logs'"
+        [tableType]="'audit-logs-list'"
+        [dataList]="dataAuditLogs"
+        (changeFilter)="changeAuditLogsFilter($event)">
+      </app-sd-audit-logs-list>
+    </div>
+    <!--end .col-->
+  </div>
+  <!--end .row-->
+</div>
+<!-- end .content -->
+
+<app-sd-modal-windows-reassign-incident
+  *ngIf="modalData['name'] === 'modal-windows-reassign-incident'"
+  [modalData]="modalData"
+  (clickFinishReassignment)="clickFinishReassignment()">
+</app-sd-modal-windows-reassign-incident>
+
+<app-sd-modal-windows-reminder-sent
+  [modalData]="modalData">
+</app-sd-modal-windows-reminder-sent>
+
+<app-sd-modal-windows-success-info
+  [modalData]="modalData">
+</app-sd-modal-windows-success-info>
+
+<app-sd-modal-windows-confirm
+  [modalData]="modalData"
+  (clickConfirm)="clickConfirm()">
+</app-sd-modal-windows-confirm>

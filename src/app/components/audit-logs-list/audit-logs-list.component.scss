@@ -1,0 +1,92 @@
+@import '../../../styles/variables';
+
+//.access-control-modul
+.access-control-module {
+    .top-title {
+        padding: 19px 16px 12px;
+    }
+    app-sd-table-filter {
+        ::ng-deep {
+            .date-wrapper {
+                .date-panel {
+                    left: auto;
+                    right: 0;
+                }
+            }
+            .status-moudule {
+                .status-panel {
+                    border-radius: 4px;
+                    left: auto;
+                    right: 0;
+                }
+            }
+        }
+    }
+    
+    .top-btns {
+        padding: 0 16px 14px;
+        .btn {
+            margin-right: 11px;
+        }
+    }
+    .user-list {
+        border-top: 1px solid #f0f0f1;
+        li {
+            padding: 12px 14px;
+            border-bottom: 1px solid #eeeeef;
+            .user-module {
+                .top-txt {
+                    color: $grayColor;
+                    font-size: 14px;
+                    font-weight: 400;
+                    margin-bottom: 5px;
+                }
+                .left-img {
+                    margin-right: 10px;
+                }
+                .names {
+                    font-weight: 500;
+                    margin-right: 0;
+                }
+                .gray-txt {
+                    text-align: left;
+                    .txt {
+                        color: $grayPlaceholderColor;
+                        font-size: 12px;
+                        font-weight: 400;
+                    }
+                    .points {
+                        width: 3px;
+                        height: 3px;
+                        background-color: $grayPlaceholderColor;
+                        border-radius: 100%;
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin: 0 2px;
+                    }
+                }
+                
+            }
+        }
+    }
+    .btn-links {
+        display: block;
+        line-height: 42px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $blueColor;
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
+
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1023px) {
+    .access-control-module {
+        margin-top: 10px;
+        &.white-panel {
+            padding: 0;
+        }
+    }
+}

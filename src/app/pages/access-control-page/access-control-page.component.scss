@@ -1,0 +1,49 @@
+@import '../../../styles/variables';
+
+app-sd-line-chart {
+    ::ng-deep {
+        .purple-panel {
+            &.white-panel {
+                background-color: #6f2c91;
+            }
+        }
+    }
+}
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1023px) {
+    
+    .mobile-two {
+        &.row {
+            margin: 0 -6px;    
+        }
+        .col {
+            padding: 0 6px;
+        }
+        .col-sm-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+    .content {
+        .col-md-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+    ::ng-deep {
+        .search-area {
+            .lefts {
+                .left-txt {
+                    display: inline-block;
+                }
+            }
+            .rights {
+                justify-content: flex-end;
+                .btn-blue {
+                    width: auto;
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,19 @@
+<div class="modal-default new-admin"
+  *ngIf="modalData['name'] === 'modal-windows-reminder-sent'">
+  <div class="modal-mains">
+    <div class="photo w-50">
+      <img src="/assets/i/hand.png" alt="img">
+    </div>
+    <div class="txt">
+      <div class="name font-bold">Reminder Sent</div>
+      <p class="bold-500 font-normal">to {{modalData['itemData']}}</p>
+    </div>
+    <div class="btn-close">
+      <a href="javascript:;"
+        (click)="closeModal()">
+        Close
+      </a>
+    </div>
+  </div>
+</div>
+<!-- end .modal-default -->

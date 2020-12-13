@@ -1,0 +1,224 @@
+<div class="modal-default create-admin">
+  <div class="modal-mains">
+    <a href="javascript:;" class="btn-close mobile-hide"
+      (click)="closeModal()">
+    </a>
+    <div class="mobile-back-header flex-grid mb-15 mobile-show desktop-hide">
+      <a href="javascript:;" class="btn-back"
+        (click)="closeModal()">
+      </a>
+      <div class="title">
+        {{!modalData['itemData']['isEdited'] ? 'Create New Admin' : 'Edit Admin Details'}}
+      </div>
+    </div>
+    <!--end .mobile-back-header-->
+    <div class="title mobile-hide">
+      {{!modalData['itemData']['isEdited'] ? 'Create New Admin' : 'Edit Admin Details'}}
+    </div>
+    <div class="group mb-25">
+      <div class="flex-grid mb-6">
+        <div class="tit">SEARCH USER</div>
+        <a href="javascript:;" class="btn-clear mobile-hide"
+          *ngIf="!modalData['itemData']['isEdited']"
+          (click)="clickClearUser()">
+          CLEAR
+        </a>
+      </div>
+      <app-sd-user-selection
+        [inputPlaceholder]="'Search Employee ID or Name'"
+        [dataUser]="dataUser"
+        (selectUser)="selectUser($event)">
+      </app-sd-user-selection>
+    </div>
+    <!-- end .group -->
+    <div class="group">
+      <a href="javascript:;"></a>
+      <div class="th">
+        <span class="w-40">PERMISSIONS</span>
+        <span class="w-15">FULL</span>
+        <span class="w-15">MODIFY</span>
+        <span class="w-15">VIEW</span>
+        <a href="javascript:;" class="w-15 btn-clear"
+          (click)="clickClearPermission()">
+          CLEAR
+        </a>
+      </div>
+      <!-- end .th -->
+      <div class="td">
+        <span class="w-40">Admin Creation Permissions</span>
+        <div class="w-15">
+          <div class="radio-wrap">
+            <input type="radio" name="radio-admin" id="radio-admin-full"
+              [value]="'Full'"
+              [(ngModel)]="modalData['itemData']['data']['admin']" />
+            <label for="radio-admin-full"></label>
+          </div>
+          <!--end .radio-wrap-->
+        </div>
+        <div class="w-15">
+          <div class="radio-wrap">
+            <input type="radio" name="radio-admin" id="radio-admin-modify"
+              [value]="'Modify'"
+              [(ngModel)]="modalData['itemData']['data']['admin']"/>
+            <label for="radio-admin-modify"></label>
+          </div>
+          <!--end .radio-wrap-->
+        </div>
+        <div class="w-15">
+          <div class="radio-wrap">
+            <input type="radio" name="radio-admin" id="radio-admin-view"
+              [value]="'View'"
+              [(ngModel)]="modalData['itemData']['data']['admin']"/>
+            <label for="radio-admin-view"></label>
+          </div>
+          <!--end .radio-wrap-->
+        </div>
+      </div>
+      <!-- end .td -->
+      <div class="td">
+        <span class="w-40">Template & CAN Permissions</span>
+        <div class="w-15">
+          <div class="radio-wrap">
+            <input type="radio" name="radio-can" id="radio-can-full"
+              [value]="'Full'"
+              [(ngModel)]="modalData['itemData']['data']['can']"/>
+            <label for="radio-can-full"></label>
+          </div>
+          <!--end .radio-wrap-->
+        </div>
+        <div class="w-15">
+          <div class="radio-wrap">
+            <input type="radio" name="radio-can" id="radio-can-modify"
+              [value]="'Modify'"
+              [(ngModel)]="modalData['itemData']['data']['can']"/>
+            <label for="radio-can-modify"></label>
+          </div>
+          <!--end .radio-wrap-->
+        </div>
+        <div class="w-15">
+          <div class="radio-wrap">
+            <input type="radio" name="radio-can" id="radio-can-view"
+              [value]="'View'"
+              [(ngModel)]="modalData['itemData']['data']['can']"/>
+            <label for="radio-can-view"></label>
+          </div>
+          <!--end .radio-wrap-->
+        </div>
+      </div>
+      <!-- end .td -->
+      <div class="td">
+        <span class="w-40">Incidents Permissions</span>
+        <div class="w-15">
+          <div class="radio-wrap">
+            <input type="radio" name="radio-incidents" id="radio-incidents-full"
+              [value]="'Full'"
+              [(ngModel)]="modalData['itemData']['data']['incidents']"/>
+            <label for="radio-incidents-full"></label>
+          </div>
+          <!--end .radio-wrap-->
+        </div>
+        <div class="w-15">
+          <div class="radio-wrap">
+            <input type="radio" name="radio-incidents" id="radio-incidents-modify"
+              [value]="'Modify'"
+              [(ngModel)]="modalData['itemData']['data']['incidents']"/>
+            <label for="radio-incidents-modify"></label>
+          </div>
+          <!--end .radio-wrap-->
+        </div>
+        <div class="w-15">
+          <div class="radio-wrap">
+            <input type="radio" name="radio-incidents" id="radio-incidents-view"
+              [value]="'View'"
+              [(ngModel)]="modalData['itemData']['data']['incidents']"/>
+            <label for="radio-incidents-view"></label>
+          </div>
+          <!--end .radio-wrap-->
+        </div>
+      </div>
+      <!-- end .td -->
+    </div>
+    <!-- end .group -->
+    <div class="group">
+      <div class="check-box flex-grid">
+        <span class="left">Set Admin Status</span>
+        <div class="right flex">
+          <!--end .checkbox-wrap-->
+          <div class="tag status-green"
+            *ngIf="modalData['itemData']['data']['status'] === 'Active'">
+            Active
+          </div>
+          <div class="tag status-red"
+            *ngIf="modalData['itemData']['data']['status'] === 'Deactivated'">
+            Deactivated
+          </div>
+          <div class="checkbox-round-wrap">
+            <input type="checkbox" id="check-status"
+              [checked]="modalData['itemData']['data']['status'] === 'Active'"
+              (change)="modalData['itemData']['data']['status'] = ($event.currentTarget.checked ? 'Active' : 'Deactivated')"/>
+            <label for="check-status" class="bg-black"></label>
+          </div>
+          <!--end .checkbox-wrap-->
+        </div>
+      </div>
+    </div>
+    <!-- end .group -->
+    <div class="group"
+      *ngIf="!modalData['itemData']['isEdited']">
+      <div class="flex-grid mb-6">
+        <div class="tit">TERMS AND CONDITION</div>
+        <a href="javascript:;" class="btn-clear"
+          (click)="showTermsConditions.emit()">
+          READ TERMS AND CONDITION
+        </a>
+      </div>
+      <div class="check-box">
+        <div class="checkbox-wrap">
+          <input type="checkbox" id="check-agree"
+            [(ngModel)]="modalData['itemData']['data']['agreeTermsAndCondition']"/>
+          <label for="check-agree">Agree to our terms and condition.</label>
+        </div>
+        <!--end .checkbox-wrap-->
+      </div>
+      <!-- end .check-box -->
+    </div>
+    <!-- end .group -->
+    
+    <div class="group"
+      *ngIf="modalData['itemData']['isEdited']">
+      <div class="flex-grid mb-6">
+        <div class="tit">BAN THIS ACCOUNT (PERMANENTLY)</div>
+      </div>
+      <div class="check-box">
+        <div class="checkbox-wrap">
+          <input type="checkbox" id="check-ban"
+            [(ngModel)]="modalData['itemData']['data']['banned']"/>
+          <label for="check-ban">This account will be banned permanently and cannot be revoked</label>
+        </div>
+        <!--end .checkbox-wrap-->
+      </div>
+      <!-- end .check-box -->
+    </div>
+    <!-- end .group -->
+    
+    <div class="bot btns">
+      <div class="error-txt" *ngIf="showUserError">
+        You need to select a user.
+      </div>
+      <div class="error-txt" *ngIf="showAgreeError">
+        You need to agree to our terms and condition.
+      </div>
+      <a href="javascript:;" class="btn btn-blue"
+        *ngIf="!modalData['itemData']['isEdited']"
+        (click)="clickCreate()">
+        Create Admin
+      </a>
+      <a href="javascript:;" class="btn btn-blue"
+        *ngIf="modalData['itemData']['isEdited']"
+        (click)="clickEdit()">
+        Apply Edits
+      </a>
+    </div>
+  </div>
+</div>
+<!-- end .modal-default -->

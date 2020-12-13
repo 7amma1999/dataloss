@@ -1,0 +1,299 @@
+<div class="table-top">
+  <div class="lefts flex">
+    <ng-container
+      *ngIf="tableType === 'admin-list'">
+      <app-sd-date-range
+        [shownValue]="'Date Added'"
+        (changeDate)="adminFilter['dateAdded'] = $event;changeFilterValues();">
+      </app-sd-date-range>
+      
+      <div class="status-moudule"
+        [class.open]="showPermissionsAdmin"
+        (clickOutside)="showPermissionsAdmin = false">
+        <a href="javascript:;" class="btn btn-border"
+          [class.active]="adminFilter.permissions.length > 0"
+          (click)="showPermissionsAdmin = !showPermissionsAdmin;">
+          Permissions
+        </a>
+        <div class="status-panel">
+          <div class="mobile-back-header flex-grid mobile-show desktop-hide">
+            <a href="javascript:;" class="btn-back"
+              (click)="showPermissionsAdmin = false;">
+            </a>
+            <div class="title">
+              Permissions Filter
+            </div>
+          </div>
+          <!--end .mobile-back-header-->
+          <ul>
+            <li *ngFor="let item of permissionsAdmin;let i = index">
+              <div class="flex-grid items">
+                <div class="left-txt">{{item['label']}}</div>
+                <div class="checkbox-round-wrap">
+                  <input type="checkbox" id="check-permissionsAdmin-{{i}}"
+                    [(ngModel)]="item['selected']"/>
+                  <label for="check-permissionsAdmin-{{i}}"></label>
+                </div>
+                <!--end .checkbox-wrap-->
+              </div>
+            </li>
+          </ul>
+          <div class="bottom-area flex-grid">
+            <a href="javascript:;" class="gray-links"
+              (click)="clearCheckboxFilter(permissionsAdmin);">
+              Clear
+            </a>
+            <a href="javascript:;" class="btn btn-all-blue"
+              (click)="saveCheckboxFilter('adminFilter', 'permissions', permissionsAdmin);
+                       showPermissionsAdmin = false;">
+              Save
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="status-moudule"
+        [class.open]="showStatusAdmin"
+        (clickOutside)="showStatusAdmin = false">
+        <a href="javascript:;" class="btn btn-border"
+          [class.active]="adminFilter.status.length > 0"
+          (click)="showStatusAdmin = !showStatusAdmin;">
+          Status
+        </a>
+        <div class="status-panel">
+          <div class="mobile-back-header flex-grid mobile-show desktop-hide">
+            <a href="javascript:;" class="btn-back"
+              (click)="showStatusAdmin = false;">
+            </a>
+            <div class="title">
+              Status Filter
+            </div>
+          </div>
+          <!--end .mobile-back-header-->
+          <ul>
+            <li *ngFor="let item of statusAdmin;let i = index">
+              <div class="flex-grid items">
+                <div class="left-txt">{{item['label']}}</div>
+                <div class="checkbox-round-wrap">
+                  <input type="checkbox" id="check-statusAdmin-{{i}}"
+                    [(ngModel)]="item['selected']"/>
+                  <label for="check-statusAdmin-{{i}}"></label>
+                </div>
+                <!--end .checkbox-wrap-->
+              </div>
+            </li>
+          </ul>
+          <div class="bottom-area flex-grid">
+            <a href="javascript:;" class="gray-links"
+              (click)="clearCheckboxFilter(statusAdmin);">
+              Clear
+            </a>
+            <a href="javascript:;" class="btn btn-all-blue"
+              (click)="showStatusAdmin = false"
+              (click)="saveCheckboxFilter('adminFilter', 'status', statusAdmin);
+                       showStatusAdmin = false;">
+              Save
+            </a>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    
+    <ng-container
+      *ngIf="tableType === 'audit-logs'">
+      <app-sd-date-range
+        [shownValue]="'Date'"
+        (changeDate)="auditLogFilter['date'] = $event;changeFilterValues();">
+      </app-sd-date-range>
+      
+      <a href="javascript:;" class="btn btn-border"
+        [class.active]="auditLogFilter.accessControlOnly"
+        (click)="auditLogFilter.accessControlOnly = !auditLogFilter.accessControlOnly;changeFilterValues()">
+        Access Control Only
+      </a>
+      <a href="javascript:;" class="btn btn-border"
+        [class.active]="auditLogFilter.incidentsOnly"
+        (click)="auditLogFilter.incidentsOnly = !auditLogFilter.incidentsOnly;changeFilterValues()">
+        Incidents Only
+      </a>
+    </ng-container>
+    
+    <ng-container
+      *ngIf="tableType === 'incident-list'">
+      <app-sd-date-range
+        [shownValue]="'Date'"
+        (changeDate)="incidentFilter['date'] = $event;changeFilterValues();">
+      </app-sd-date-range>
+      
+      <div class="status-moudule"
+        [class.open]="showRegionIncident"
+        (clickOutside)="showRegionIncident = false">
+        <a href="javascript:;" class="btn btn-border"
+          [class.active]="incidentFilter.region.length > 0"
+          (click)="showRegionIncident = !showRegionIncident;">
+          Region
+        </a>
+        <div class="status-panel">
+          <div class="mobile-back-header flex-grid mobile-show desktop-hide">
+            <a href="javascript:;" class="btn-back"
+              (click)="showRegionIncident = false;">
+            </a>
+            <div class="title">
+              Region Filter
+            </div>
+          </div>
+          <!--end .mobile-back-header-->
+          <ul>
+            <li *ngFor="let item of regionIncident;let i = index">
+              <div class="flex-grid items">
+                <div class="left-txt">{{item['label']}}</div>
+                <div class="checkbox-round-wrap">
+                  <input type="checkbox" id="check-regionIncident-{{i}}"
+                    [(ngModel)]="item['selected']"/>
+                  <label for="check-regionIncident-{{i}}"></label>
+                </div>
+                <!--end .checkbox-wrap-->
+              </div>
+            </li>
+          </ul>
+          <div class="bottom-area flex-grid">
+            <a href="javascript:;" class="gray-links"
+              (click)="clearCheckboxFilter(regionIncident);">
+              Clear
+            </a>
+            <a href="javascript:;" class="btn btn-all-blue"
+              (click)="saveCheckboxFilter('incidentFilter', 'region', regionIncident);
+                       showRegionIncident = false;">
+              Save
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="status-moudule"
+        [class.open]="showStatusIncident"
+        (clickOutside)="showStatusIncident = false">
+        <a href="javascript:;" class="btn btn-border"
+          [class.active]="incidentFilter.status.length > 0"
+          (click)="showStatusIncident = !showStatusIncident;">
+          Status
+        </a>
+        <div class="status-panel">
+          <div class="mobile-back-header flex-grid mobile-show desktop-hide">
+            <a href="javascript:;" class="btn-back"
+              (click)="showStatusIncident = false;">
+            </a>
+            <div class="title">
+              Status Filter
+            </div>
+          </div>
+          <!--end .mobile-back-header-->
+          <ul>
+            <li *ngFor="let item of statusIncident;let i = index">
+              <div class="flex-grid items">
+                <div class="left-txt">{{item['label']}}</div>
+                <div class="checkbox-round-wrap">
+                  <input type="checkbox" id="check-statusIncident-{{i}}"
+                    [(ngModel)]="item['selected']"/>
+                  <label for="check-statusIncident-{{i}}"></label>
+                </div>
+                <!--end .checkbox-wrap-->
+              </div>
+            </li>
+          </ul>
+          <div class="bottom-area flex-grid">
+            <a href="javascript:;" class="gray-links"
+              (click)="clearCheckboxFilter(statusIncident);">
+              Clear
+            </a>
+            <a href="javascript:;" class="btn btn-all-blue"
+              (click)="saveCheckboxFilter('incidentFilter', 'status', statusIncident);
+                       showStatusIncident = false;">
+              Save
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="status-moudule"
+        [class.open]="showTypeIncident"
+        (clickOutside)="showTypeIncident = false">
+        <a href="javascript:;" class="btn btn-border"
+          [class.active]="incidentFilter.type.length > 0"
+          (click)="showTypeIncident = !showTypeIncident;">
+          Type
+        </a>
+        <div class="status-panel">
+          <div class="mobile-back-header flex-grid mobile-show desktop-hide">
+            <a href="javascript:;" class="btn-back"
+              (click)="showTypeIncident = false;">
+            </a>
+            <div class="title">
+              Type Filter
+            </div>
+          </div>
+          <!--end .mobile-back-header-->
+          <ul>
+            <li *ngFor="let item of typeIncident;let i = index">
+              <div class="flex-grid items">
+                <div class="left-txt">{{item['label']}}</div>
+                <div class="checkbox-round-wrap">
+                  <input type="checkbox" id="check-typeIncident-{{i}}"
+                    [(ngModel)]="item['selected']"/>
+                  <label for="check-typeIncident-{{i}}"></label>
+                </div>
+                <!--end .checkbox-wrap-->
+              </div>
+            </li>
+          </ul>
+          <div class="bottom-area flex-grid">
+            <a href="javascript:;" class="gray-links"
+              (click)="clearCheckboxFilter(typeIncident);">
+              Clear
+            </a>
+            <a href="javascript:;" class="btn btn-all-blue"
+              (click)="saveCheckboxFilter('incidentFilter', 'type', typeIncident);
+                       showTypeIncident = false;">
+              Save
+            </a>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    
+    <ng-container
+      *ngIf="tableType === 'audit-logs-list'">
+      <app-sd-date-range
+        (click)="showUser = false;"
+        [shownValue]="'Date'"
+        (changeDate)="auditLogListFilter['date'] = $event;changeFilterValues();">
+      </app-sd-date-range>
+      
+      <div class="status-moudule"
+        [class.open]="showUser">
+        <a href="javascript:;" class="btn btn-border"
+          [class.active]="auditLogListFilter['user']['name'] !== ''"
+          (click)="showUser = !showUser;">
+          User
+        </a>
+        <div class="status-panel">
+          <app-sd-user-selection
+            [inputPlaceholder]="'Search User'"
+            [userClickable]="true"
+            [dataUser]="tempUserData"
+            (selectUser)="selectUser($event)">
+          </app-sd-user-selection>
+          <div class="bottom-area flex-grid">
+            <a href="javascript:;" class="gray-links"
+              (click)="clearUser()">
+              Clear
+            </a>
+            <a href="javascript:;" class="btn btn-all-blue"
+              (click)="clickSaveUser();
+                       showUser = false;">
+              Save
+            </a>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

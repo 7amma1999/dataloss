@@ -1,0 +1,146 @@
+@import '../../../styles/variables';
+
+//.three-blocks
+.three-blocks {
+    margin-top: 35px;
+    margin-bottom: 42px;
+    .items {
+        margin-right: 17px;
+        height: auto;
+        display: inline-block;
+        border-radius: 5px;
+        background-color: #eef2f4;
+        padding: 12px 10px 12px 15px;
+        .label-txt {
+            color: $darkGrayColor;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .value-txt {
+            color: $grayColor;
+            font-size: 14px;
+            font-weight: 400;
+        }
+    }
+}
+//.user-module
+.user-module {
+    .left-img {
+        width: 88px;
+        height: 87px;
+        flex: 0 0 88px;
+        max-width: 88px;
+    }
+    .right-txt {
+        margin-left: 22px;
+        .top-status {
+            margin-bottom: 10px;
+        }
+        .top-txt {
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+        .gray-txt {
+            font-size: 14px;
+            .txt {
+                color: $grayPlaceholderColor;
+            }
+        }
+    }
+}
+
+.change-title {
+    color: $darkGrayColor;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 14px;
+    margin-bottom: 12px;
+}
+//.color-list-module
+.color-list-module {
+    margin-bottom: 20px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    .color-list {
+        .white-bar {
+            height: 39px;
+            background-color: $whiteColor;
+            padding: 0 10px;
+            .lefts {
+                color: $grayColor;
+                font-size: 14px;
+                font-weight: 700;
+            }
+            .rights {
+                color: $grayColor;
+                font-size: 12px;
+                font-weight: 400;
+                .blue-link {
+                    color: $blueColor;
+                }
+            }
+        }
+        .pink-bar,
+        .green-bar {
+            padding: 6px 10px;
+            .lefts {
+                color: $grayColor;
+                font-size: 14px;
+                font-weight: 400;
+            }
+            .icons-mark {
+                display: inline-block;
+                margin-right: 5px;
+                padding: 0 10px;
+            }
+        }
+        .pink-bar {
+            background-color: rgba(239, 51, 65, 0.1);
+            .icons-mark {
+                color: $redColor;
+            }
+        }
+        .green-bar {
+            background-color: rgba(109, 194, 75, 0.1);
+            .icons-mark {
+                color: $greenColor;
+            }
+        }
+    }
+}
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1023px) {
+    .user-module {
+        .left-img {
+            width: 78px;
+            height: 78px;
+            flex: 0 0 78px;
+            max-width: 78px;
+        }
+        .right-txt {
+            .top-txt {
+                font-size: 15px;
+            }
+            .gray-txt {
+                font-size: 13px;
+            }
+        }
+    }
+    .three-blocks {
+        margin-top: 22px;
+        margin-bottom: 20px;
+        align-items: flex-start;
+        flex-direction: column;
+        .items {
+            margin-bottom: 15px;
+            margin-right: 0;
+            width: 100%;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

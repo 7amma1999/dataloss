@@ -1,0 +1,204 @@
+<header class="header flex-grid">
+  <div class="lefts flex mobile-hide">
+    <div class="logo-area ">
+      <a href="javascript:;" class="btn-logo flex">
+        <img src="/assets/i/logo.png" alt="img" />
+        <span class="txt">DLP</span>
+      </a>
+    </div>
+    <div class="header-nav">
+      <ul class="flex">
+        <li
+          *ngIf="userRole === 'Administrators'">
+          <a class="tab-items" [routerLink]="['/access-control-page']"
+            routerLinkActive="current">
+            Access Control
+          </a>
+        </li>
+        <li>
+          <a class="tab-items" [routerLink]="['/incident-list-page']"
+            routerLinkActive="current">
+            Incidents
+          </a>
+        </li>
+        <li
+          *ngIf="userRole === 'Administrators'">
+          <a href="javascript:;" class="tab-items ">
+            Templates & CAN 
+          </a>
+        </li>
+        <li
+          *ngIf="(userRole === 'Administrators')
+              || (userRole === 'Managers')">
+          <a class="tab-items" [routerLink]="['/audit-logs-page']"
+            routerLinkActive="current">
+            Audit Logs
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!--end .header-nav-->
+  </div>
+  <!--end .lefts-->
+  <div class="right-users flex mobile-hide">
+    <div class="btn-list flex">
+      <a href="javascript:;" class="icons btn-search"></a>
+      <!--open-->
+      <div class="tip-module"
+        [class.open]="openNotify">
+        <a href="javascript:;" class="icon-bell"
+          (click)="openNotify = !openNotify">
+          <i class="icons red-point"></i>
+        </a>
+        <div class="tip-panel header-notification"
+          *ngIf="dataList">
+          <div class="top-bar flex-grid">
+            <div class="left-title">
+              Initial Notification
+            </div>
+            <a href="javascript:;" class="btn-close"
+              (click)="openNotify = false">
+            </a>
+          </div>
+          <div class="red-border-box">
+            <p class="txt">
+              {{dataList['alertMessage']}}
+            </p>
+          </div>
+          <!--end .red-border-box-->
+          <div
+            [innerHTML]="getContentTrusted(dataList['content'])">
+          </div>
+        </div>
+      </div>
+      <!--tip-module-->
+    </div>
+    <!--end .btn-list-->
+    <div class="user-module"
+      [class.open]="openProfile"
+      (clickOutside)="openProfile = false">
+      <a href="javascript:;" class="left-img">
+        <img src="/assets/i/photo01.png" alt="photo" />
+      </a>
+      <a href="javascript:;" class="right-txt flex"
+        (click)="openProfile = !openProfile">
+        <span class="names">
+          Martha Yazir
+        </span>
+        <span class="btn-drop">
+        </span>
+      </a>
+      <div class="login-out-box">
+        <a href="javascript:;" class="btn-logout"
+          [routerLink]="['/index-page']">
+          Login Out
+        </a>
+      </div>
+    </div>
+    <!--end .user-module-->
+  </div>
+  <!--end .right-users-->
+  <!--open-->
+  <div class="mobile-header mobile-show desktop-hide">
+    <div class="top-bar flex-grid">
+      <div class="left-close desktop-hide mobile-show">
+        <a href="javascript:;" class="btn-close"
+          *ngIf="isShownMobileMenu"
+          (click)="isShownMobileMenu = false;">
+        </a>
+        <a href="javascript:;" class="btn btn-menu"
+          *ngIf="!isShownMobileMenu"
+          (click)="isShownMobileMenu = true;">
+        </a>
+      </div>
+      <div class="center-txt desktop-hide mobile-show">
+        Access Control
+      </div>
+      <!--end .center-txt-->
+      <div class="tip-module"
+        [class.open]="openNotify">
+        <a href="javascript:;" class="icon-bell"
+          (click)="openNotify = !openNotify">
+          <i class="icons red-point"></i>
+        </a>
+        <div class="tip-panel header-notification"
+          *ngIf="dataList">
+          <div class="top-bar flex-grid">
+            <div class="left-title">
+              Initial Notification
+            </div>
+            <a href="javascript:;" class="btn-close"
+              (click)="openNotify = false">
+            </a>
+          </div>
+          <div class="red-border-box">
+            <p class="txt ">
+              {{dataList['alertMessage']}}
+            </p>
+          </div>
+          <!--end .red-border-box-->
+          <div
+            [innerHTML]="getContentTrusted(dataList['content'])">
+          </div>
+        </div>
+      </div>
+      <!--tip-module-->
+    </div>
+    <!--end .top-bar-->
+    <div class="nav-list desktop-hide"
+      [class.mobile-show]="isShownMobileMenu">
+      <div class="top-area">
+        <div class="user-module flex">
+          <div class="left-img">
+            <img src="/assets/i/big-photo01.png" alt="img" />
+          </div>
+          <div class="rigth-txt">
+            <a href="javascript:;" class="names">Martha Yazir</a>
+            <a href="javascript:;" class="btn btn-all-blue">Edit Profile</a>
+          </div>
+        </div>
+      </div>
+      <ul>
+        <li
+          *ngIf="userRole === 'Administrators'">
+          <a href="javascript:;" class="tab-items"
+            [routerLink]="['/access-control-page']"
+            routerLinkActive="current">
+            Access Control
+          </a>
+        </li>
+        <li>
+          <a href="javascript:;" class="tab-items"
+            [routerLink]="['/incident-list-page']"
+            routerLinkActive="current">
+            Incidents
+          </a>
+        </li>
+        <li
+          *ngIf="userRole === 'Administrators'">
+          <a href="javascript:;" class="tab-items">
+            Templates & CAN
+          </a>
+        </li>
+        <li
+          *ngIf="(userRole === 'Administrators')
+              || (userRole === 'Managers')">
+          <a href="javascript:;" class="tab-items"
+            [routerLink]="['/audit-logs-page']"
+            routerLinkActive="current">
+            Audit Logs
+          </a>
+        </li>
+        <li>
+          <a href="javascript:;" class="tab-items"
+            [routerLink]="['/index-page']">
+            Logout 
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!--end .nav-list-->
+  </div>
+  <!--end .mobile-header-->
+</header>
+<!-- end .header -->

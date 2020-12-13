@@ -1,0 +1,110 @@
+[
+  {
+    "photoUrl": "/assets/i/audit-user01.png",
+    "logDescription": "<strong>Marc Carmic</strong> updated permissions",
+    "logTime": "30 minutes ago ",
+    "numberOfChanges": 2,
+    "logType": "Access Control",
+    "logDetails": {
+      "userRole": "Administrator",
+      "emailAddress": "marccc@dlp.com",
+      "ipAddress": "142.23.21.22",
+      "changesList": [
+        {
+          "category": "Template & CAN Permissions",
+          "initiatedBy": "Martha Yazir",
+          "remove": "View",
+          "add": "Full"
+        },
+        {
+          "category": "Set Admin Status",
+          "initiatedBy": "Martha Yazir",
+          "remove": "Deactivated",
+          "add": "Active"
+        }
+      ]
+    }
+  },
+  {
+    "photoUrl": "/assets/i/user04.png",
+    "logDescription": "<strong>Lorrain Imar</strong> updated permissions",
+    "logTime": "1 hour ago",
+    "numberOfChanges": 2,
+    "logType": "Access Control",
+    "logDetails": {
+      "userRole": "Administrator",
+      "emailAddress": "mar@dap.com",
+      "ipAddress": "12.23.21.23",
+      "changesList": [
+        {
+          "category": "Template & CAN Permissions",
+          "initiatedBy": "Sartha Lazir",
+          "remove": "Full",
+          "add": "View"
+        },
+        {
+          "category": "Set Admin Status",
+          "initiatedBy": "Kara Yea",
+          "remove": "Active",
+          "add": "Deactivated"
+        }
+      ]
+    }
+  },
+  {
+    "photoUrl": "/assets/i/user01.png",
+    "logDescription": "Created new user <strong>Jarmaine Lire</strong>",
+    "logTime": "2 hours ago ",
+    "numberOfChanges": 0,
+    "logType": "Access Control",
+    "logDetails": {
+      "userRole": "Administrator",
+      "emailAddress": "marccc@dlp.com",
+      "ipAddress": "142.23.21.22",
+      "changesList": [
+      ]
+    }
+  },
+  {
+    "photoUrl": "/assets/i/user05.png",
+    "logDescription": "Created new user <strong>Claire Yates</strong>",
+    "logTime": "2 hours ago",
+    "numberOfChanges": 0,
+    "logType": "Access Control",
+    "logDetails": {
+      "userRole": "Administrator",
+      "emailAddress": "marccc@dlp.com",
+      "ipAddress": "142.23.21.22",
+      "changesList": [
+      ]
+    }
+  },
+  {
+    "photoUrl": "/assets/i/user03.png",
+    "logDescription": "<strong>Rupert Grinn</strong> is banned",
+    "logTime": "Yesterday at 2:30 PM",
+    "numberOfChanges": 0,
+    "logType": "Access Control",
+    "logDetails": {
+      "userRole": "Administrator",
+      "emailAddress": "marccc@dlp.com",
+      "ipAddress": "142.23.21.22",
+      "changesList": [
+      ]
+    }
+  },
+  {
+    "photoUrl": "/assets/i/user06.png",
+    "logDescription": "Created new user <strong>Hort Porgiun</strong>",
+    "logTime": "2 hours ago",
+    "numberOfChanges": 0,
+    "logType": "Access Control",
+    "logDetails": {
+      "userRole": "Administrator",
+      "emailAddress": "marccc@dlp.com",
+      "ipAddress": "142.23.21.22",
+      "changesList": [
+      ]
+    }
+  }
+]

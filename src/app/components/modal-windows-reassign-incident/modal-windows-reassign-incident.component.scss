@@ -1,0 +1,73 @@
+@import '../../../styles/variables';
+
+//.reassign-incident
+.reassign-incident {
+	.modal-mains {
+		width: 388px;
+	}
+	.btn-close {
+		display: block;
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		width: 22px;
+		height: 22px;
+		background-size: 18px 18px;
+		background: url(/assets/i/icon-close.png) center center no-repeat;
+		&:hover {
+			opacity: 0.85;
+		}
+	}
+	.pad {
+		padding: 22px 29px 20px 25px;
+	}
+	.title {
+		color: $grayColor;
+		font-size: 16px;
+		font-weight: 500;
+		margin-bottom: 30px;
+	}
+	.min-height {
+		min-height: 100px;
+	}
+	.sm-tit {
+		margin-bottom: 10px;
+		color: $darkGrayColor;
+		font-size: 12px;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+	.error-txt {
+	    color: $redColor;
+	    font-size: 15px;
+	}
+	.bot {
+		padding: 15px 25px 22px;
+		border-top: 1px solid #e8e9f1;
+		.btn {
+			display: block;
+			height: 45px;
+			line-height: 45px;
+			padding: 0;
+			text-transform: inherit;
+			border-radius: 5px;
+		}
+	}
+}
+
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1023px) {
+	.reassign-incident {
+		&.modal-default {
+			.pad {
+				padding: 22px 12px;
+			}
+			.modal-mains {
+				width: 357px;
+				height: auto;
+				border-radius: 5px;
+			}
+		}
+	}
+	
+}

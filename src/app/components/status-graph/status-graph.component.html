@@ -1,0 +1,46 @@
+<div class="white-panel status-graph-module">
+  <a href="javascript:;" class="btn-more"></a>
+  <div class="top-title">
+    Status Graph
+  </div>
+  <div class="two-circle-chart flex-grid">
+    <div class="items">
+      <div class="center-txt">
+        <span class="number dark-green ">
+          {{dataList['employeeAction']['currentValue']}}
+        </span>
+        <span class="txt">INCIDENTS</span>
+      </div>
+      <app-sd-circle-chart
+        [color]="'#00b49d'"
+        [dataList]="dataList['employeeAction']">
+      </app-sd-circle-chart>
+      <div class="bottom-txt">Employee Action</div>
+    </div>
+    
+    <div class="items">
+      <div class="center-txt">
+        <span class="number green">
+          {{dataList['managerAction']['currentValue']}}
+        </span>
+        <span class="txt">INCIDENTS</span>
+      </div>
+      <app-sd-circle-chart
+        [color]="'#a5cf4c'"
+        [dataList]="dataList['managerAction']">
+      </app-sd-circle-chart>
+      <div class="bottom-txt">Manager Action</div>
+    </div>
+    
+  </div>
+    
+  
+    <div class="bottom-area flex-grid">
+      <div class="lefts">
+        <div class="title">SYSTEM ALERT</div>
+        <div class="txt">{{dataList['systemAlert']}}</div>
+      </div>
+      <a href="javascript:;" class="btn btn-info"></a>
+    </div>
+</div>
+<!--end .status-graph-module-->

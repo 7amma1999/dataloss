@@ -1,0 +1,84 @@
+<app-sd-header>
+</app-sd-header>
+
+<div class="content">
+  <div class="row"
+    *ngIf="dataSummary">
+    <div class="col col-lg-9 col-md-12">
+      <app-sd-top-banner
+        [dataList]="dataSummary['banner']">
+      </app-sd-top-banner>
+
+      <div class="row mobile-two">
+        <div class="col col-md-4 col-sm-6">
+          <app-sd-line-chart
+            [label]="'TOTAL LOGINS'"
+            [theme]="'pink'"
+            [totalValue]="dataSummary['totalLoginsValue']"
+            [dataList]="dataSummary['totalLogins']">
+          </app-sd-line-chart>
+        </div>
+        <div class="col col-md-5 col-sm-6">
+          <app-sd-via-region
+            [dataList]="dataSummary['adminsViaRegion']">
+          </app-sd-via-region>          
+        </div>
+        <div class="col col-md-3 col-sm-12 mobile-hide">
+          <app-sd-total-dlp-admins
+            [dataList]="dataSummary['totalDLPAdmins']">
+          </app-sd-total-dlp-admins>
+        </div>
+      </div>
+      <!--end .row-->
+      <app-sd-table-common
+        *ngIf="dataList"
+        [dataList]="dataList"
+        [pageData]="pageData"
+        [tableType]="'admin-list'"
+        (clickNew)="clickNew()"
+        (clickEdit)="clickEdit($event)"
+        (clickDeleteAdmin)="clickDeleteAdmin($event)"
+        (changeTableParamters)="changeTableParamters($event)">
+      </app-sd-table-common>
+    </div>
+    <!--end .col-->
+    <div class="col col-lg-3 col-md-12">
+      <app-sd-admin-status-summary
+        [dataList]="dataSummary['adminStatusSummary']">
+      </app-sd-admin-status-summary>
+      
+      <app-sd-audit-logs-list
+        [title]="'Access Control Audit Logs'"
+        [tableType]="'audit-logs-list'"
+        [dataList]="dataAuditLogs"
+        (changeFilter)="changeAuditLogsFilter($event)">
+      </app-sd-audit-logs-list>
+    </div>
+    <!--end .col-->
+  </div>
+  <!--end .row-->
+</div>
+<!-- end .content -->
+
+<app-sd-modal-windows-create-edit-admin
+  *ngIf="modalData['name'] === 'modal-windows-create-edit-admin'"
+  [modalData]="modalData"
+  (clickCreateAdmin)="clickCreateAdmin()"
+  (clickApplyEdits)="clickApplyEdits()"
+  (showTermsConditions)="showTermsConditions()">
+</app-sd-modal-windows-create-edit-admin>
+
+<app-sd-modal-windows-terms-conditions
+  [isShownTermsConditions]="isShownTermsConditions"
+  (clickClose)="isShownTermsConditions = false"
+  (clickTermsConditions)="clickTermsConditions($event)">
+</app-sd-modal-windows-terms-conditions>
+
+<app-sd-modal-windows-success-info
+  [modalData]="modalData">
+</app-sd-modal-windows-success-info>
+
+<app-sd-modal-windows-confirm
+  [modalData]="modalData"
+  (clickConfirm)="clickConfirm()">
+</app-sd-modal-windows-confirm>

@@ -1,0 +1,47 @@
+@import '../../../styles/variables';
+
+//.sure-modal
+.sure-modal {
+    .modal-mains {
+        width: 355px;
+        border: 1px solid #ededee;
+        padding: 20px 24px;
+        .title {
+            font-size: 16px;
+            margin-bottom: 4px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .txt {
+            padding: 15px 10px 40px;
+            font-size: 14px;
+            color: $grayColor;
+            line-height: 16px;
+        }
+        .btn-close {
+            .btn {
+                font-size: 14px;
+                border-radius: 5px;
+                height: 40px;
+                padding: 2px 25px;
+                line-height: 40px;
+                width: 100px;
+                &.btn-gray {
+                    background-color: #ededee;
+                }
+            }
+        }
+    }
+}
+
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1023px) {
+    //.sure-modal
+    .sure-modal {
+        .modal-mains {
+            width: 345px;
+            height: auto;
+            border-radius: 5px;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+@import '../../../styles/variables';
+//.search-area
+.search-area {
+	padding: 27px 19px;
+	.lefts {
+		.left-txt {
+			color: $grayColor;
+			font-size: 16px;
+			font-weight: 500;
+			line-height: 19px;
+			margin-right: 24px;
+		}
+	}
+	.rights {
+		.btn-blue {
+			font-weight: 400;
+			.icon-new-user {
+				background: url(/assets/i/icon-new-user@2x.png) center center no-repeat;
+				background-size: 16px 16px;
+				width: 16px;
+				height: 16px;
+				margin-right: 8px;
+			}
+			.icon-warning {
+				background: url(/assets/i/icon-warning@2x.png) center center no-repeat;
+				background-size: 6px 15px;
+				width: 17px;
+				height: 17px;
+				margin-right: 6px;
+			}
+		}
+	}
+}
+
+/* fix layout issue when smaller than 767px width */
+@media (max-width: 1023px) {
+	.search-area {
+		position: relative;
+		padding: 17px 19px 74px;
+		.search-module {
+			position: absolute;
+			bottom: 17px;
+			left: 19px;
+			width: calc(100% - 40px);
+		}
+	}
+}

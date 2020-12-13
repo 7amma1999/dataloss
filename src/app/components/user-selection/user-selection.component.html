@@ -1,0 +1,46 @@
+<div class="search-module"
+  [class.open]="dataUser['name'] === ''"
+  *ngIf="dataListUser">
+  <div class="list"
+    [class.clickable]="userClickable"
+    *ngIf="dataUser['name'] !== ''"
+    (click)="clickDefaultUser()">
+    <div class="photo">
+      <img src="{{dataUser['photoUrl']}}" alt="img">
+    </div>
+    <div class="mleft"
+      [class.with-email]="showEmail">
+      <div class="name">{{dataUser['name']}}</div>
+      <div class="email"
+        *ngIf="showEmail">
+        {{dataUser['email']}}
+      </div>
+    </div>
+  </div>
+  <div class="inputs">
+    <a href="javascript:;" class="btn-search"></a>
+    <input type="text" placeholder="{{inputPlaceholder}}"
+      [(ngModel)]="searchText"/>
+  </div>
+  <div class="search-panel"
+    *ngIf="hasMatchedUsers()">
+    <ul>
+      <ng-container
+        *ngFor="let item of dataListUser;let i = index">
+        <li
+          *ngIf="matchedSearch(item)">
+          <a href="javascript:;" class="tab-links"
+            (click)="clickUser(item)">
+            <span class="user-photo">
+              <img src="{{item['photoUrl']}}" alt="img" />
+            </span>
+            <span class="txt">
+              {{item['firstLabelValue']}}<span class="key-word">{{item['middleLabelValue']}}</span>{{item['lastLabelValue']}}
+            </span>
+          </a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</div>
+<!--search-module-->

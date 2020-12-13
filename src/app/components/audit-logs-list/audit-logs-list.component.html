@@ -1,0 +1,42 @@
+<div class="white-panel access-control-module">
+  <a href="javascript:;" class="btn-more other-more"></a>
+  <div class="top-title">
+    {{title}}
+  </div>
+  <app-sd-table-filter
+    [tableType]="tableType"
+    (changeFilter)="changeFilter.emit($event)">
+  </app-sd-table-filter>
+  <div class="user-list">
+    <ul>
+      <li *ngFor="let item of dataList;">
+        <div class="user-module">
+          <a href="javascript:;" class="left-img">
+            <img src="{{item['photoUrl']}}" alt="photo" />
+          </a>
+          <div class="right-txt ">
+            <div class="top-txt"
+              [innerHTML]="getContentTrusted(item['logDescription'])">
+            </div>
+            <p class="gray-txt">
+              <span class="txt">{{item['logTime']}} </span>
+              <ng-container
+                *ngIf="item['numberOfChanges'] !== 0">
+                <span class="points"></span>
+                <span class="txt">
+                  {{item['numberOfChanges']}} 
+                  change{{item['numberOfChanges'] > 1 ? 's' : ''}}
+                </span>
+              </ng-container>
+            </p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!--end .user-list-->
+  <div class="bottom-btn">
+    <a href="javascript:;" class="btn btn-links">See All</a>
+  </div>
+</div>
+<!--end .access-control-module-->

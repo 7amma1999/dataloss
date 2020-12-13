@@ -1,0 +1,67 @@
+<div class="user-module">
+  <a href="javascript:;" class="left-img">
+    <img src="{{dataList['photoUrl']}}" alt="photo" />
+  </a>
+  <div class="right-txt ">
+    <div class="top-status">
+      <a href="javascript:;" class="btn btn-green"
+        *ngIf="dataList['logType'] === 'Access Control'">
+        ACCESS CONTROL
+      </a>
+      <a href="javascript:;" class="btn btn-all-blue"
+        *ngIf="dataList['logType'] === 'Incidents'">
+        INCIDENTS
+      </a>
+    </div>
+    <div class="top-txt"
+      [innerHTML]="getContentTrusted(dataList['logDescription'])">
+    </div>
+    <p class="gray-txt">
+      <span class="txt">{{dataList['logTime']}} </span>
+    </p>
+  </div>
+</div>
+<!--end .user-module-->
+<div class="three-blocks flex">
+  <div class="items">
+    <div class="label-txt">USER ROLE</div>
+    <div class="value-txt">{{dataList['logDetails']['userRole']}}</div>
+  </div>
+  <div class="items">
+    <div class="label-txt">EMAIL ADDRESS</div>
+    <div class="value-txt">{{dataList['logDetails']['emailAddress']}}</div>
+  </div>
+  <div class="items">
+    <div class="label-txt">IP ADDRESS</div>
+    <div class="value-txt">{{dataList['logDetails']['ipAddress']}}</div>
+  </div>
+</div>
+<!--end .three-blocks-->
+<ng-container
+  *ngIf="dataList['logDetails']['changesList'].length > 0">
+  <div class="change-title">
+    CHANGES ({{dataList['logDetails']['changesList'].length}})
+  </div>
+  <div class="color-list-module"
+    *ngFor="let item of dataList['logDetails']['changesList'];let i = index">
+    <div class="color-list">
+      <div class="white-bar flex-grid">
+        <div class="lefts">{{item['category']}}</div>
+        <div class="rights">
+          initiated by <a href="javascript:;" class="blue-link">{{item['initiatedBy']}}</a>
+        </div>
+      </div>
+      <!--end .white-bar-->
+      <div class="pink-bar flex-grid">
+        <div class="lefts"> <span class="icons-mark">-</span>{{item['remove']}}</div>
+      </div>
+      <!--end .pink-bar-->
+      <div class="green-bar flex-grid">
+        <div class="lefts"><span class="icons-mark">+</span>{{item['add']}}</div>
+      </div>
+      <!--end .green-bar-->
+    </div>
+    <!--end .color-list-->
+  </div>
+  <!--end .color-list-module-->
+</ng-container>
